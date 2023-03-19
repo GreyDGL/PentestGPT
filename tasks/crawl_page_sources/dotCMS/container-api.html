@@ -1,0 +1,988 @@
+
+<!doctype html>
+<html lang="en">
+    <!-- 
+   com.dotmarketing.wiki.contentlet         : cfe81a23b383956015e8fc4aad247542
+   com.dotmarketing.wiki.contentlet.inode   : f0e0abf2-babe-4962-93c7-8b6b294c000b
+   com.dotmarketing.wiki.in.wiki            : 
+   com.dotmarketing.wiki.contentlet.url     : /docs/latest/container-api
+    -->
+    
+    
+
+
+
+
+    <!-- contentId set from $URLMapContent object (cfe81a23b383956015e8fc4aad247542) -->
+        
+    
+    
+      
+
+            
+                                                    
+                
+                                                                                                            
+                
+                                                                                                            
+                
+                                                                                                            
+                
+                                                                                                                                                                                                                                                                                                        
+    					        	        		                	        				        				        			        		        	        	        	        		                        	
+<head><SCRIPT>localStorage.removeItem('experiment_data');</SCRIPT>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="google-site-verification" content="AXebqMDo-bpvyDw2mGkEdoj7cGto8GlONyznFQIWKNQ" />
+<title>Container API | dotCMS</title>
+<meta name="description" content="Container API documentation - dotCMS Hybrid Content Management System">
+<meta name="language" content="en">
+<meta name="author" content="dotCMS">
+<meta name="copyright" content="dotCMS LLC, Miami Florida, US">
+<meta name="keywords" content="caas, container api, containers, content as a service, laas, layout as a service, rest api, restful, debugBranch, docContent">
+
+<meta name="debugBranch" content="docContent">
+
+<link rel="canonical" href="https://www.dotcms.com/docs/latest/container-api">
+<meta property="og:title" content="Container API">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.dotcms.com/dA/16372012cb/hybrid-cms.png">
+<meta property="og:site_name" content="dotCMS Content Management System">
+<meta property="og:description" content="Container API documentation - dotCMS Hybrid Content Management System">
+<meta property="og:url" content="https://www.dotcms.com/docs/latest/container-api">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/application/themes/dotcms/css/main.dotsass?v=10-06-2022">
+    <link rel="stylesheet" href="/documentation/css/course_videos.css">
+    <link rel="stylesheet" href="/documentation/css/expandable_text.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
+    <link rel="stylesheet" href="//www.dotcms.com/application/themes/dotcms/css/vendor/jquery.fancybox.min.css" />
+
+    <script src="/application/themes/dotcms/js/jquery-3.5.1.min.js"></script>
+    
+    <style>
+        ul.toc-list{
+            list-style-type: none;
+        }
+        .is-active-link::before {
+            background-color: #1191cc;
+        }
+    </style>
+
+    <!-- Add the target="_blank" and rel="noopener nofollow" tags to all external links, to lower bounce rate and improve SEO -->
+    <script>
+        $(document).ready(function() {
+            $( 'a[href^="http://"],a[href^="https://"]' )
+                .attr( 'target','_blank' )
+                .attr( 'rel','noopener nofollow' )
+            ;
+        });
+    </script>
+
+    <!--  -->
+        
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KMC7G4');</script>
+    <!-- End Google Tag Manager -->
+<!-- Adwords Snippet -->
+
+<!-- Metadata Schema -->
+
+</head>
+
+<body id="dotcms-documentation" class="banner-small doc-site ">
+<!-- agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 -->
+
+                                <header>
+    <div class="nav-bg">
+        <div class="container-fluid" style="max-width: calc(100vw - 5%);">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="/">
+                                            <img src="//cdn.dotcms.com/dA/c746682d-495e/256w/dotcms.png" alt="dotCMS Hybrid Headless CMS">
+                                    </a>
+                <button id="toggle" class="" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-right">
+
+                        <!-- PRODUCT -->
+                        <li class="nav-item dropdown dropdown-lg">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Product
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <div class="row menu-wrapper">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <a href="/product/dotcms-cloud" class="menu-link product-link">
+                                                        <h2>dotCMS Cloud</h2>
+                                                        <div class="sub-title">Agile, Scalable and Secure</div>
+                                                    </a>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="submenu">
+                                                                <a class="icon-link" href="/product/hybrid-cms">
+                                                                    <span class="icon-hybrid-cms"></span>Hybrid Headless
+                                                                </a>
+                                                                <a class="icon-link" href="/product/features/content-management-system">
+                                                                    <span class="icon-text"></span>Content Management
+                                                                </a>
+                                                                <a class="icon-link" href="/product/features/content-workflow">
+                                                                    <span class="icon-flow"></span>Workflows & Approval
+                                                                </a>
+                                                                <a class="icon-link" href="/product/features/multilingual-cms">
+                                                                    <span class="icon-language"></span>Multilingual & Localization
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="submenu">
+                                                                <a class="icon-link" href="/product/features/hyper-personalization">
+                                                                    <span class="icon-hyper-personalization"></span>Personalization
+                                                                </a>
+                                                                <a class="icon-link" href="/product/features/multi-tenant-cms">
+                                                                    <span class="icon-multisite"></span>Microsites & Multi-tenancy
+                                                                </a>
+                                                                <a class="icon-link" href="/product/features/content-as-a-service">
+                                                                    <span class="icon-api"></span>Content as a Service
+                                                                </a>
+                                                                <a class="icon-link" href="/product/features/graphql/">
+                                                                    <span class="icon-graphql" style="background-size: 40px;"></span>GraphQL
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5 last-col">
+                                                    <a href="/product/dotcms-cdn" class="menu-link product-link">
+                                                        <h2>Performance Hub</h2>
+                                                        <div class="sub-title">Exceptional performance at scale</div>
+                                                    </a>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="submenu">
+                                                                <a class="icon-link" href="/product/dotcms-cdn">
+                                                                    <span class="icon-cdn"></span>CDN (Content Delivery Network)
+                                                                </a>
+                                                                <a class="icon-link" href="/product/features/scalability-performance">
+                                                                    <span class="icon-performance"></span>Scalability
+                                                                </a>
+                                                                <a class="icon-link" href="/product/features/cms-integrations">
+                                                                    <span class="icon-connections"></span>Integrations
+                                                                </a>
+                                                                <a class="icon-link" href="/product/features/Image-API/">
+                                                                    <span class="icon-layers"></span>DAM & Image Processing
+                                                                </a>
+                                                            </div>                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Solutions -->
+                        <li class="nav-item dropdown dropdown-lg">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Solutions
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <div class="row menu-wrapper">
+                                        <div class="col-lg-9 col-md-12">
+                                            <h3 class="pl-3 hidden-sm">Solutions</h3>                           
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <a class="menu-link"  href="/solutions/headless-cms">
+                                                        <span class="icon icon-settings"></span>
+                                                        <h3>Headless CMS</h3>
+                                                        <div class="sub-title">Decoupled content infrastructure with robust APIs and GraphQL.</div>
+                                                    </a>
+                                                    <a class="menu-link"  href="/solutions/intranet-portal">
+                                                        <span class="icon icon-hyper-personalization"></span>
+                                                        <h3>Intranets & Extranets</h3>
+                                                        <div class="sub-title">Provide a centralized place where employees can find everything they're looking for.</div>
+                                                    </a>
+                                                    <a class="menu-link"  href="/solutions/integration-platform">
+                                                        <span class="icon icon-connections"></span>
+                                                        <h3>Integration Platform</h3>
+                                                        <div class="sub-title">Enable seamless integration with best-of-breed tools to increase efficiency.</div>
+                                                    </a>
+                                                    <a class="menu-link"  href="/solutions/knowledge-base">
+                                                        <span class="icon icon-site-search"></span>
+                                                        <h3>Knowledge Base</h3>
+                                                        <div class="sub-title">Create, organize, and share knowledge base articles and content with ease.</div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <a class="menu-link"  href="/solutions/web-apps">
+                                                        <span class="icon icon-site"></span>
+                                                        <h3>Web Apps & Sites</h3>
+                                                        <div class="sub-title">Create personalized experiences that attract and empower customers. <!--while you employees create simple reusable content--></div>
+                                                    </a>
+                                                    <a class="menu-link"  href="/solutions/customer-portals">
+                                                        <span class="icon icon-security"></span>
+                                                        <h3>Customer Portals</h3>
+                                                        <div class="sub-title">Deliver an exceptional customer experience while streamlining business processes.</div>
+                                                    </a>
+                                                    <a class="menu-link"  href="/solutions/ecommerce-cms">
+                                                        <span class="icon icon-roi"></span>
+                                                        <h3>Agile E-Commerce</h3>
+                                                        <div class="sub-title">Deliver performance, scalability and flexibility so you can focus on driving revenue.</div>
+                                                    </a>
+                                                    <a class="menu-link"  href="/solutions/digital-asset-management">
+                                                        <span class="icon icon-layers"></span>
+                                                        <h3>Digital Asset Management</h3>
+                                                        <div class="sub-title">Empower creative teams to organize and manage their digital assets effectively.</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 last-col border-left hide-mobile">
+                                            <div class="list-menu">
+                                                <h3>Industries</h3>
+                                                <ul>
+                                                    <li><a href="/industries/financial-services">Financial Services</a></li>
+                                                    <li><a href="/industries/retail-ecommerce">Retail and eCommerce</a></li>
+                                                    <li><a href="/industries/higher-education">Higher Education</a></li>
+                                                    <li><a href="/industries/high-tech-telecommunications">High Tech</a></li>
+                                                    <li><a href="/industries/media-and-entertainment">Media & Entertainment</a></li>
+                                                    <li><a href="/industries/government-and-nonprofit">Government & Nonprofit</a></li>
+                                                    <li><a href="/industries/manufacturing">Manufacturing</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- PARTNERS -->
+                        <li class="nav-item dropdown dropdown-lg">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Partners
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <div class="row menu-wrapper justify-content-between">
+                                        <div class="col-lg-3 col-md-12">
+                                            <div class="list-menu">
+                                                <h3 class="hidden-sm"><a href="/partners/">Partners</a></h3>
+                                                <ul>
+                                                    <li>
+                                                        <a href="/partners/">
+                                                            Find a <span class="sr-only">dotCMS</span> Partner
+                                                            <p>Search for a partner who specializes in your industry or is in your geographic region</p>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/partners/become-a-partner">
+                                                            Become a <span class="sr-only">dotCMS</span> Partner
+                                                            <p>Join the global network of dotCMS partners.</p>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/marketplace/">
+                                                            <span class="sr-only">dotCMS</span> Marketplace
+                                                            <p>Seamlessly integrate with today's best-of-breed technologies</p>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 partner-wrapper hide-mobile pl-4">
+                                            <div class="partner-text">
+                                                <h3>Our global network of partners represents <span class="d-block size-h3">over <span class="text-pink">800</span> offices in <span class="text-pink">150</span> countries</span></h3>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                                                                    <div class="px-5 py-3">
+                                                        <a href="/partners/architech" class="d-inline-block align-self-center">
+                                                            <img src="//cdn.dotcms.com/dA/cba44010-5158-47a9-83c3-5638f4cd43b5/logo/125w/50q/Architech_Logo.png" class="img-fluid" alt="Architech">
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="px-5 py-3">
+                                                        <a href="/partners/contentbloom" class="d-inline-block align-self-center">
+                                                            <img src="//cdn.dotcms.com/dA/2c84bb37-596c-4b50-a7fc-e170982ca761/logo/125w/50q/Content-Bloom-Logo.png" class="img-fluid" alt="contentBloom">
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="px-5 py-3">
+                                                        <a href="/partners/dept" class="d-inline-block align-self-center">
+                                                            <img src="//cdn.dotcms.com/dA/61952125-3773-4fa0-953f-50bc6a4b4619/logo/125w/50q/dept.png" class="img-fluid" alt="DEPT">
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="px-5 py-3">
+                                                        <a href="/partners/havas" class="d-inline-block align-self-center">
+                                                            <img src="//cdn.dotcms.com/dA/2cb921bcb578b1f5d03b4db801c92ece/logo/125w/50q/logo_havas_group.jpg" class="img-fluid" alt="Havas">
+                                                        </a>
+                                                    </div>
+                                                                                            </div>
+                                            <div class="text-center my-2 py-2 border-top"><a href="/partners/" class="btn-arrow">All Partners</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- RESOURCES -->
+                        <li class="nav-item dropdown dropdown-lg">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resources
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <div class="row menu-wrapper">
+                                        <div class="col-lg-9 col-md-12">                    
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="list-menu pl-lg-3 pr-lg-4">
+                                                        <h3 class="hidden-sm">Resources</h3>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/blog/">
+                                                                    <span class="sr-only">CMS</span> Blog
+                                                                    <p>Articles about dotCMS, Web Development, or anything else we want to talk about.</p>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/case-studies/">
+                                                                    <span class="sr-only">dotCMS</span> Case Studies
+                                                                    <p>Don't take our word for it; see what our customers have to say about dotCMS.</p>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/reports/">
+                                                                    <span class="sr-only">CMS</span> Library
+                                                                    <p>Need more? Read our whitepapers, product briefs, and industry reports.</p>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/company/events/">
+                                                                    <span class="sr-only">dotCMS</span> Webinars
+                                                                    <p>Register for upcoming webinars or watch previously recorded webinars.</p>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="list-menu pl-lg-3 pr-lg-4">
+                                                        <h3 class="hidden-sm">Services</h3>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/services/support/">
+                                                                    Support
+                                                                    <p>dotCMS customers get access to developers and support engineers to help solve even the most challenging problems.</p>
+                                                                </a>
+                                                            </li>
+                                                            <li class="border-bottom">
+                                                                <a href="/services/professional-services/">
+                                                                    Professional Services
+                                                                    <p>We offer three levels of engagement to help you deliver, manage, and maintain your dotCMS implementation.</p>
+                                                                </a>
+                                                            </li>
+                                                            <h3 class="hidden-sm mt-3">Security</h3>
+                                                            <li>
+                                                                <a href="/security/security-at-dotcms">
+                                                                    Security at dotCMS
+                                                                    <p>See what makes dotCMS the most secure CMS for enterprise.</p>
+                                                                </a>
+                                                                <a href="https://security.dotcms.com" target="_blank">
+                                                                    Trust Report
+                                                                    <p>View details of our security practices in our Trust Report.</p>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="col-lg-3 last-col">
+                                            <div class="list-menu">
+                                                <h3 class="hidden-sm">Developer</h3>
+                                                <ul>
+                                                    <li><a href="/download/">Download <span class="sr-only">dotCMS</span></a></li>
+                                                    <li><a href="/demo/developer-trials">Demo Sandbox<span class="sr-only">dotCMS</span></a></li>
+                                                    <li><a href="/docs/latest/table-of-contents"><span class="sr-only">dotCMS</span> Documentation</a></li>
+                                                    <li><a href="https://groups.google.com/g/dotcms" target="_blank"><span class="sr-only">dotCMS</span> User Forum</a></li>
+                                                    <li><a href="/roadmap" target="_blank"><span class="sr-only">dotCMS</span> Roadmap</a></li>
+                                                    <li><a href="/codeshare/"><span class="sr-only">dotCMS</span> Codeshare</a></li>
+                                                    <li><a href="/product/technology/architecture"><span class="sr-only">Hybrid CMS</span> Architecture</a></li>
+                                                    <li><a href="/courses/"><span class="sr-only">CMS</span> Online Training</a></li>
+                                                    <li><a href="/videos/"><span class="sr-only">CMS</span> Video Library</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a href="/pricing/" class="nav-link fw-700">Pricing</a></li>
+                        <li class="nav-item d-sm-block d-md-none"><a href="/company/careers/" class="nav-link fw-700">Careers</a></li>
+                        <li class="nav-item d-sm-block d-md-none"><a href="/contact-us/" class="nav-link fw-700">Contact Us</a></li>
+                        <li class="nav-item d-sm-block d-md-none"><a href="/demo/demo-request" class="nav-link fw-700 nav-orange">Request a Demo</a>
+                    </ul>
+                </div>
+                
+                <!-- CTAs -->
+                <div class="nav-cta">
+                    <a href="#" class="show-search">
+                        <span class="icon-search"></span>
+                        <span class="sr-only">Search</span>
+                    </a>
+                    <a href="/demo/demo-request" class="btn btn-primary download"><span class="sr-only">Hybrid CMS</span>Request a Demo</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+            
+    <!-- SEARCH SETTINGS -->
+
+		
+		<div class="doc-search">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7 offset-lg-3">
+					<label for="doc-search" class="sr-only">Search dotCMS Documentation</label>
+					<form id="doc-search" method="get" action="/docs/latest/table-of-contents">
+						<input type="text" placeholder="Search docs" id="searchBox" name="q" value="">
+						<input type="submit" value="Documentation" name="search" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="doc-search-ghost hidden"></div>
+	
+    <div class="container" style="margin-top:30px; margin-bottom:30px;">
+        <div class="row">
+            
+                            
+                
+                <!-- DOC NAV -->
+                <div class="col-lg-3 side-bar d-print-none">
+                            
+                
+
+    
+
+    
+    <nav id="topicMenu" class="doc-nav">
+        
+        <ul>
+            <li class="category"><a href="/docs/latest/table-of-contents">Home</a></li>
+                                                        <li class="category">
+                                                            <a href="/docs/latest/platform">Platform</a>
+                                                        </li>
+                                                <li>
+                                            <a href="/docs/latest/features">Features</a>
+                                    </li>
+                                                                    <li class="category">
+                                                            <a href="/docs/latest/authoring-content">Authoring Content</a>
+                                                        </li>
+                                                                    <li class="category-active" style="border-left:2px solid #1191cc">
+                                                            <a href="/docs/latest/developing-and-apis">Developing</a>
+                                                            
+                        <ul>
+                                                                                    <li class="active">
+                                                                            <a href="/docs/latest/web-apis">APIs</a>
+                                                                                                                <ul>
+                                                                                
+                                                                                            <li class="active">
+                                                                                                            <a href="/docs/latest/rest-apis">REST APIs</a>
+                                                                                                                                                            
+                                                        <ul>
+                                                                                                                                                                                    <li>
+                                                                                                                                            <a href="/docs/latest/rest-api-endpoints">All End Points</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li class="active">
+                                                                                                                                            <a href="/docs/latest/container-api">Containers</a>
+                                                                                                                                                                                                        </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/content-api">Content</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/content-type-api">Content Types</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/elasticsearch-rest-api">Elasticsearch</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/restful-api-to-manage-indexes">Elasticsearch Indexes</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/language-properties-rest-api">Language Properties</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/navigation-rest-api">Navigation</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/page-rest-api-layout-as-a-service-laas">Pages & Layouts</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/remote-publishing-bundle-api">Push Publishing & Bundles</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/role-rest-api">Roles</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/rules-rest-api">Rules</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/widget-api">Widgets</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/workflow-rest-api">Workflows</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/rest-api-index-policy">Index Policy</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/creating-a-workflow-content-type-and-content-via-api">Example: Workflow, Content Type and Content</a>
+                                                                                                                                    </li>
+                                                                                                                                                                                                                                                <li>
+                                                                                                                                            <a href="/docs/latest/all-rest-apis">All APIs (Generated)</a>
+                                                                                                                                    </li>
+                                                                                                                                                                            </ul>
+                                                                                                    </li>
+                                                                                                                            
+                                                                                            <li>
+                                                                                                            <a href="/docs/latest/postman-examples">Postman Examples</a>
+                                                                                                    </li>
+                                                                                                                            
+                                                                                            <li>
+                                                                                                            <a href="/docs/latest/rest-api-authentication">Authentication</a>
+                                                                                                    </li>
+                                                                                                                            
+                                                                                            <li>
+                                                                                                            <a href="/docs/latest/graphql">GraphQL</a>
+                                                                                                    </li>
+                                                                                                                            
+                                                                                            <li>
+                                                                                                            <a href="/docs/latest/image-resizing-and-processing">Image Resizing and Processing</a>
+                                                                                                    </li>
+                                                                                                                            
+                                                                                            <li>
+                                                                                                            <a href="/docs/latest/bash-cli">Command Line (CLI)</a>
+                                                                                                    </li>
+                                                                                                                            
+                                                                                            <li>
+                                                                                                            <a href="/docs/latest/scripting-api">Scripting API</a>
+                                                                                                    </li>
+                                                                                                                            
+                                                                                            <li>
+                                                                                                            <a href="/docs/latest/webhooks">Webhooks</a>
+                                                                                                    </li>
+                                                                                                                            
+                                                                                            <li>
+                                                                                                            <a href="/docs/latest/error-codes-rest-api">Error Codes</a>
+                                                                                                    </li>
+                                                                                                                            
+                                                                                            <li>
+                                                                                                            <a href="/docs/latest/cors-header-configuration">CORS Header Configuration</a>
+                                                                                                    </li>
+                                                                                                                            </ul>
+                                                                    </li>
+                                                                                                                <li>
+                                                                            <a href="/docs/latest/velocity">Velocity Scripting</a>
+                                                                    </li>
+                                                                                                                <li>
+                                                                            <a href="/docs/latest/plugins">Plugins</a>
+                                                                    </li>
+                                                                                                                <li>
+                                                                            <a href="/docs/latest/ci-cd">CI/CD</a>
+                                                                    </li>
+                                                                                                                <li>
+                                                                            <a href="/docs/latest/headless-in-context-editing">Headless / In Context Editing</a>
+                                                                    </li>
+                                                                                                                <li>
+                                                                            <a href="/docs/latest/deploying-a-custom-starter-site">Deploying a Custom Starter Site</a>
+                                                                    </li>
+                                                                                                                <li>
+                                                                            <a href="/docs/latest/javadocs" target="_blank"><i>Javadocs (Java API)</i></a>
+                                                                    </li>
+                                                                            </ul>  
+                                    </li>
+                                                <li>
+                                            <a href="/docs/latest/administration">Administration</a>
+                                    </li>
+                                                                    <li class="category">
+                                                            <a href="/docs/latest/security-and-privacy">Security and Privacy</a>
+                                                        </li>
+                                                                    <li class="category">
+                                                            <a href="/docs/latest/product-versions">Product Versions</a>
+                                                        </li>
+                                                <li>
+                                            <a href="/docs/latest/help">Help and Support</a>
+                                    </li>
+                    
+        </ul>
+    </nav>
+
+
+                </div>
+    
+                <!-- DOC BODY -->
+                
+                                    <div class="col-lg-7 doc-body">
+                        <script src="/documentation/js/anchor.min.js"></script>
+
+
+
+
+
+    <!--  Redirect From: Vanity URL: /docs/latest/container-api -->
+<div class="js-toc-content">
+        <div>
+                        <ul class="breadcrumb d-print-none">
+        <li><a href="table-of-contents"><img src="https://www.dotcms.com/documentation/images/home.png" style="width:14px;height:14px;" alt="Documentation Home"> <span class="divider"></a> / </span>
+
+                                                                                                                            
+                                                        <li >
+                                            <a href="/docs/latest/developing-and-apis">Developing</a> <span class="divider"> / </span>
+                                    </li>
+                                                <li >
+                                            <a href="/docs/latest/web-apis">APIs</a> <span class="divider"> / </span>
+                                    </li>
+                                                <li >
+                                            <a href="/docs/latest/rest-apis">REST APIs</a> <span class="divider"> / </span>
+                                    </li>
+                                                <li class="active">
+                                            Containers                                    </li>
+                        </ul>            </div>
+    <div id="top"></div>
+        <h1>Container API     </h1>
+    <div style="margin:-14px 0px 24px 0px;color:rgb(120, 120, 120);font-size: small;">
+        Last Updated: 
+                    Sep 9, 2022
+            </div>
+        <!-- Start Body Content -->
+            <span class="sr-only"> documentation for the dotCMS Content Management System</span>
+                        
+        <div id="flag-notice" class="text-center" hidden>
+        <div style="background:#de90f1; color:#000;" class="shadow py-2 px-4 mb-2 rounded-lg text-center d-inline-block">
+            <span><strong>Spotted a problem?</strong> Select it and click </span>
+            <button class="btn btn-sm btn-flat bg-warning" style="pointer-events:none; color:#000;">FLAG FOR REVIEW!</button>
+        </div>
+    </div>
+        <article>
+        <div class="docSectionBody">
+            
+
+                                        
+
+                    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">-->
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+                    <script>hljs.initHighlightingOnLoad();</script>
+                                                                                                                        
+
+                    
+
+                    <div class="markdown">
+                                                <p>dotCMS <a href="templates">templates</a> are built out of <strong><a href="containers">containers</a></strong>, which define display behaviors for different <a href="content-types">Content Types</a> in the context of different page layouts. This document details the endpoints of a REST API for manipulating containers with create, read, update, and delete (CRUD) operations, utilizing and returning JSON objects.</p>
+<p>Containers can exist either as <a href="database-configuration">database</a> entities or as <a href="asset-storage">file system</a> entities — <a href="file-based-containers">directories containing VTL files</a>. The latter case offers advantages such as easy storage on remote repositories, synchronization through <a href="webdav">WebDav</a> or <a href="bash-cli">command-line interface</a>, or other similar conveniences. By the same measure, there are also some Container API calls that can only be performed on the database-entity type of Container.</p>
+<p>All examples use the dotCMS demo site as their target. Used on another host, the <code>Authentication</code> header must change accordingly: For <code>Basic</code> authorization, use <a href="https://en.wikipedia.org/wiki/Base64">base64</a> encoding of a <code>username:password</code> string; for more secure <code>Bearer</code> authorization, <a href="rest-api-authentication#APIToken">use an API token</a>.</p>
+<h2 id="GetContainer">Retrieving a Container</h2>
+<p>The endpoint offers several methods to retrieve containers, individually or collectively. Please note:</p>
+<ul>
+<li>Containers located in the database must be requested <strong>by identifier</strong>.</li>
+<li>Containers located in the file system  must be referenced <strong>by path</strong>.</li>
+</ul>
+<p>To retrieve the working version of a container, use <code>/working</code>:</p>
+<pre><code class="bash">curl --location --request GET 'https://demo.dotcms.com/api/v1/containers/working?containerId=REPLACE_THIS_UUID' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW5AZG90Y21zLmNvbTphZG1pbg=='
+</code></pre>
+<p>To retrieve the live version of a container, call <code>/live</code>:</p>
+<pre><code class="bash">curl --location --request GET 'https://demo.dotcms.com/api/v1/containers/live?containerId=/application/containers/system' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW5AZG90Y21zLmNvbTphZG1pbg==' \
+</code></pre>
+<p>Finally, to retrieve all containers:</p>
+<pre><code class="bash">curl --location --request GET 'https://demo.dotcms.com/api/v1/containers/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW5AZG90Y21zLmNvbTphZG1pbg=='
+</code></pre>
+<p>To adjust the displayed results, the Container API uses <a href="rest-apis#Pagination">standard pagination parameters</a> such as <code>per_page</code>, <code>filter</code>, etc.</p>
+<p>A successful call returns containers as JSON objects, which may look, in part, like the following data:</p>
+<pre><code class="json">{
+    "entity": {
+        "archived": false,
+        "categoryId": "27d80ebe-c9f1-4dd9-8cae-f15e644df708",
+        "deleted": false,
+        "friendlyName": "TestContainer description",
+        "iDate": 1647630014297,
+        "idate": 1647630014297,
+        "identifier": "567416cee048a876d4c60172421832ba",
+        "inode": "27d80ebe-c9f1-4dd9-8cae-f15e644df708",
+        "live": false,
+        "locked": false,
+        "map": {
+            "deleted": false,
+            "friendlyName": "TestContainer description",
+            "hasLiveVersion": false,
+            "iDate": 1647630014297,
+            "identifier": "567416cee048a876d4c60172421832ba",
+            "inode": "27d80ebe-c9f1-4dd9-8cae-f15e644df708",
+            "live": false,
+            "locked": false,
+            "modDate": 1647630014309,
+            "modUser": "dotcms.org.1",
+            "modUserName": "Admin User",
+            "showOnMenu": false,
+            "sortOrder": 0,
+            "title": "TestContainer",
+            "type": "containers",
+            "working": true
+        }
+       ...
+    }
+}
+</code></pre>
+<h2 id="AddContainer">Adding a Container</h2>
+<p>Adding a container by API call is only possible with a database-style container. A container that exists in the file system must instead be created by adding a folder containing the necessary VTL files within the <code>application/containers</code> folder, either manually or by one of the methods detailed at the top of the page.</p>
+<p>To add a container, make a <code>POST</code> call with the Container as a JSON payload:</p>
+<pre><code class="bash">curl --location --request POST 'https://demo.dotcms.com/api/v1/containers' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW5AZG90Y21zLmNvbTphZG1pbg==' \
+--data-raw '{
+   "title":"TestContainer",
+   "friendlyName":"TestContainer description",
+   "maxContentlets":1,
+   "notes":"Notes",
+   "preLoop":"&lt;h1&gt;Some Title&lt;/h1&gt;",
+   "postLoop":"&lt;span&gt;Some Footer&lt;/span&gt;",
+   "containerStructures":[
+        {
+            "structureId":"webPageContent",
+            "code":"&lt;div&gt; $!{body} &lt;/div&gt;"
+        },
+        {
+            "structureId":"DotAsset",
+            "code":" &lt;img src ='\''./contentAsset/image/${ContentIdentifier}/asset'\'' /&gt;"
+        }
+    ]
+}'
+</code></pre>
+<h2 id="UpdateContainer">Updating a Container</h2>
+<p>The call to update a container is similar to creating one; it only functioning with database containers, and it has a very similar structure. However, there are two key differences:</p>
+<ul>
+<li>It uses the <code>PUT</code> method instead of <code>POST</code>.</li>
+<li>It includes the container's identifier in the payload data.</li>
+</ul>
+<pre><code class="bash">curl --location --request PUT 'https://demo.dotcms.com/api/v1/containers' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW5AZG90Y21zLmNvbTphZG1pbg==' \
+--data-raw '{
+    "identifier":"567416cee048a876d4c60172421832ba",
+    "title":"TestContainer",
+    "friendlyName":"TestContainer description",
+    "maxContentlets":1,
+    "notes":"Notes 1",
+    "preLoop":"preLoop xxxx",
+    "postLoop":"postLoop xxxx",
+    "containerStructures":[
+        {
+            "structureId":"webPageContent",
+            "code":" code xxxx"
+        },
+        {
+            "structureId":"DotAsset",
+            "code":" tags: $!{tags}"
+        }
+    ]
+}'
+</code></pre>
+<h2 id="PublishOpsContainer">Publishing or Unpublishing a Container</h2>
+<p>Publishing or unpublishing a container are similar <code>PUT</code> operations, distinguished by the use of <code>/_publish</code> or <code>/_unpublish</code>. Both operations take either a path or an identifier.</p>
+<p>Publishing:</p>
+<pre><code class="bash">curl --location --request PUT 'https://demo.dotcms.com/api/v1/containers/_publish?containerId=567416cee048a876d4c60172421832ba' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW5AZG90Y21zLmNvbTphZG1pbg=='
+</code></pre>
+<p>Unpublishing:</p>
+<pre><code class="bash">curl --location --request PUT 'https://demo.dotcms.com/api/v1/containers/_unpublish?containerId=567416cee048a876d4c60172421832ba' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW5AZG90Y21zLmNvbTphZG1pbg=='
+</code></pre>
+<h2 id="ArchiveOpsContainer">Archiving or Unarchiving a Container</h2>
+<p>Archiving and unarchiving works similarly to publishing or unpublishing. Note: Before archiving, containers should be unpublished.</p>
+<p>To archive:</p>
+<pre><code class="bash">curl --location --request PUT 'https://demo.dotcms.com/api/v1/containers/_archive?containerId=/application/containers/system' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW5AZG90Y21zLmNvbTphZG1pbg=='
+</code></pre>
+<p>To unarchive an archived container:</p>
+<pre><code class="bash">curl --location --request PUT 'https://demo.dotcms.com/api/v1/containers/_unarchive?containerId=/application/containers/system' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW5AZG90Y21zLmNvbTphZG1pbg=='
+</code></pre>
+<h2 id="DeleteContainer">Deleting a Container</h2>
+<p>Finally, you can use the call below to delete a container. Note: A container should be archived (see above) before deletion.</p>
+<pre><code class="bash">curl --location --request DELETE 'https://demo.dotcms.com/api/v1/containers?containerId=567416cee048a876d4c60172421832ba' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW5AZG90Y21zLmNvbTphZG1pbg=='
+</code></pre>
+
+                    </div>
+            
+
+        </div>
+    
+    </article>
+</div>
+
+<script>
+	anchors.options.placement = 'right';
+	anchors.add('h1,h2,h3,h4');
+</script>                    </div>
+                    <!-- PAGE TOC -->
+                    <div class="col-lg-2 d-sm-none d-lg-block">
+                        <div class="page-toc">
+                            <h3>On this page</h3> 
+                            <div class="js-toc toc"> </div>
+                            <!--
+                            <div class="text-center pt-4">
+                                <div onclick="giveFeedback();" style="line-height:1em;cursor: pointer;color: #1191cc;">
+                                    <span class="icon-hybrid-cms"></span>
+                                    <span class="d-block">See a mistake?</span>Let us know.
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                                    </div><!-- /Row -->
+    </div><!-- /container-->
+
+
+<!-- 
+    
+            
+<footer class="mt-0 pt-3">
+	<div class="sub-footer">
+		<div class="container">
+			<ul class="social-links">
+				<li><a href="https://www.facebook.com/dotCMS/" target="_blank" rel="noopener"><img src="/application/themes/dotcms/img/icons/facebook-wh.svg" class="fa-icon" alt="Connect with dotCMS on Facebook"></a></li>
+				<li><a href="https://www.linkedin.com/company/dotcms/" target="_blank" rel="noopener"><img src="/application/themes/dotcms/img/icons/linkedin-wh.svg" class="fa-icon" alt="Connect with dotCMS on LinkedIn"></a></li>
+				<li><a href="https://twitter.com/dotcms" target="_blank" rel="noopener"><img src="/application/themes/dotcms/img/icons/twitter-wh.svg" class="fa-icon" alt="Follow dotCMS on Twitter"></a></li>
+				<li><a href="https://www.youtube.com/user/javacms/videos" target="_blank" rel="noopener"><img src="/application/themes/dotcms/img/icons/youtube-wh.svg" class="fa-icon" alt="Subscribe on YouTube"></a></li>
+			</ul>
+
+			<div class="text-center">
+				<p class="copy-write">Copyright © 2011-2023 dotCMS, LLC All rights reserved.</p>
+				<p class="privacy-links text-white">
+					<a href="/company/policies/privacy-policy" data-fancybox data-type="iframe" data-caption="dotCMS Privacy Statement">Privacy</a> |
+					<a href="/docs/latest/gdpr-compliance-support">GDPR Support</a>  |
+					<a href="#" id="hs_show_banner_button" onClick="(function(){var _hsp = window._hsp = window._hsp || []; _hsp.push(['showBanner']);})()">Cookie Settings</a>
+					<!-- Start of HubSpot code snippet -->
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<!-- Site Search -->
+<div class="search-wrapper hide-search" id="search">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<form id="searchForm" name="searchForm" action="/search">
+					<label for="search-input" class="sr-only">Site Search:</label>
+					<input type="text" id="search-input" class="search-box" name="q" autocomplete="off" placeholder="Site Search" />
+					<input class="btn btn-lg btn-secondary btn-search" type="submit" value="Search" name="search" />
+				</form>
+			</div>
+		</div>
+	</div>
+	<a class="btn-close close-search" href="#">X</a>
+</div>
+<div class="bg-screen hidden close-search"></div>
+
+<!-- iFrame Modal -->
+<div class="modal" id="iframe-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered">
+		<div class="modal-content" style="min-height: 450px;">
+			<a class="btn-close mt-3" data-dismiss="modal" href="#">X</a>
+			<iframe width="790" height="450" src=""></iframe>
+		</div>
+	</div>
+</div>
+
+<!-- LEADFEEDER -->
+<script> (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; cs.async=1; fs.parentNode.insertBefore(cs,fs); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('OKM7ZED8mk4E2zo4'); </script>
+<!-- /LEADFEEDER -->
+
+<!-- HUBSPOT -->
+<script src="https://js.hs-scripts.com/2389934.js" async defer></script>
+<!-- End of HubSpot code snippet -->
+
+
+<!-- dotCMS Analytics -->
+<script src="//www.dotcms.com/s/lib.js"
+        data-key="js.nmwizlbxl873kmf89au1n6.yet15g78x6dtz9788vxhv"
+        data-init-only="false"
+        defer></script>
+<script>window.jitsu = window.jitsu || (function(){(window.jitsuQ = window.jitsuQ || []).push(arguments);})</script>
+
+<script src="//cdn.dotcms.com/application/themes/dotcms/js/bootstrap.min.js"></script>
+<script src="//cdn.dotcms.com/application/themes/dotcms/js/script.min.js?v=10-06-2022"></script>
+<script src="//cdn.dotcms.com/application/themes/dotcms/js/jquery.fancybox.min.js" async defer></script>
+<script>function init() {var imgDefer = document.getElementsByTagName('img'); for (var i=0; i<imgDefer.length; i++) { if(imgDefer[i].getAttribute('data-src')) { imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src')); } } } window.onload = init;</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+
+
+
+
+<script>
+    tocbot.init({
+		// Where to render the table of contents.
+		tocSelector: '.js-toc',
+		// Where to grab the headings to build the table of contents.
+		contentSelector: '.js-toc-content',
+		// Which headings to grab inside of the contentSelector element.
+		headingSelector: "h1, h2, h3",
+		// For headings inside relative or absolute positioned containers within content.
+		hasInnerContainers: true,
+		collapseDepth:3,
+		orderedList: false
+    });
+
+	// TOC Scroll
+	$(window).scroll(function() {    
+		var navScroll = $(window).scrollTop();
+		if (navScroll >= 215) {
+			$(".page-toc").addClass("toc-fixed");
+			$(".doc-search").addClass("search-fixed");
+			$(".doc-search-ghost").removeClass("hidden");
+		} else {
+			$(".page-toc").removeClass("toc-fixed");
+			$(".doc-search").removeClass("search-fixed");
+			$(".doc-search-ghost").addClass("hidden");
+		}
+	});
+
+	function giveFeedback(){
+		var href = document.getElementsByClassName("is-active-link")[0].href;
+		var href = '/documentation/doc-request?ref=' + href;
+		$.fancybox.open({
+			src  : href,
+			type : 'iframe',
+		});
+	}
+</script>
+    </body>
+</html>
