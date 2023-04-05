@@ -3,10 +3,20 @@ import loguru
 from config.chatgpt_config import ChatGPTConfig
 from utils.chatgpt import ChatGPT
 from rich.prompt import Prompt
+from utils.pentest_gpt import pentestGPT
 
 logger = loguru.logger
 
 if __name__ == "__main__":
+    pentestGPTHandler = pentestGPT()
+    # initialize
+    pentestGPTHandler.initialize()
+
+    # start the input handler
+    text_input = pentestGPTHandler.input_handler()
+
+    # the previous example
+    """
     chatGPTAgent = ChatGPT(ChatGPTConfig())
     # request user's input to create a new chat.
     question = Prompt.ask("What do you want to ask ChatGPT?")
@@ -23,3 +33,4 @@ if __name__ == "__main__":
             print(result)
     history = chatGPTAgent.get_conversation_history()
     print(history)
+    """
