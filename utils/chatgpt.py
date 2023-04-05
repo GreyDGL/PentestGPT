@@ -250,6 +250,7 @@ class ChatGPT:
         code_fragments = re.findall(r"```(.*?)```", text, re.DOTALL)
         return code_fragments
 
+
 if __name__ == "__main__":
     chatgpt_config = ChatGPTConfig()
     chatgpt = ChatGPT(chatgpt_config)

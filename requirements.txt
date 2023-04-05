@@ -6,3 +6,5 @@ black
 requests
 loguru
 beautifulsoup4~=4.11.2
+colorama
+rich

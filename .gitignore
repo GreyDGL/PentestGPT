@@ -5,6 +5,7 @@ __pycache__/
 *$py.class
 config/
 outputs/
+.idea
 
 # C extensions
 *.so
