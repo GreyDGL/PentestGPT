@@ -9,11 +9,7 @@ logger = loguru.logger
 
 if __name__ == "__main__":
     pentestGPTHandler = pentestGPT()
-    # initialize
-    pentestGPTHandler.initialize()
-
-    # start the input handler
-    text_input = pentestGPTHandler.input_handler()
+    pentestGPTHandler.main()
 
     # the previous example
     """
