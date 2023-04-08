@@ -37,7 +37,7 @@ if __name__ == "__main__":
     text = chatGPTAgent.send_message(task_prompt_2, conversation_id)
 
     # load the documentation
-    with open("outputs/container_api.json", "r") as f:
+    with open("../outputs/container_api.json", "r") as f:
         container_api = json.load(f)
     for key, value in container_api.items():
         if key == "title":

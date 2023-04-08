@@ -1,4 +1,5 @@
 # PentestGPT
+v0.1.1, 09/04/2023
 
 ## Introduction
 **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
@@ -13,7 +14,9 @@ The project is still in its early stage. Feel free to raise any issues when usin
 
 
 ## Examples
-1. To start, run `python3 main.py`. 
+1. Configure the keys in `config.py`. You may follow a sample by `cp config/chatgpt_config_sample.py. config/chatgpt_config.py`.
+2. To start, run `python3 main.py`. 
+3. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
 
 ## Development
 - [ ] Add chunk processing
