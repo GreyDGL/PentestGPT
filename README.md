@@ -11,10 +11,11 @@ The project is still in its early stage. Feel free to raise any issues when usin
 ## Installation
 1. Install `requirements.txt` with `pip install -r requirements.txt`
 2. Install `chatgpt-wrapper` if you're non-plus members: `pip install git+https://github.com/mmabrouk/chatgpt-wrapper`. More details at: https://github.com/mmabrouk/chatgpt-wrapper. Note that the support for non-plus members are not optimized.
+3. Configure the keys in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py. config/chatgpt_config.py`.
+
 
 
 ## Examples
-1. Configure the keys in `config.py`. You may follow a sample by `cp config/chatgpt_config_sample.py. config/chatgpt_config.py`.
 2. To start, run `python3 main.py`. 
 3. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
 
