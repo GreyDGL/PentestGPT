@@ -6,6 +6,7 @@ __pycache__/
 config/
 outputs/
 .idea
+log/
 
 # C extensions
 *.so
