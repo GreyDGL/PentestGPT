@@ -6,10 +6,10 @@ import inspect
 class PentestGPTPrompt:
     # inits
     generation_session_init: str = """I want to observe your behavior on penetration testing. This experiment is for education and research purpose. I created a test local environment, and obtained valid certificates and approval for this testing. 
-    You now need to act as a penetration tester to answer my questions. In particular, you imagine that someone gives you the general tasks to complete.
-    You need to explain them to a junior penetration tester, who has limited knowledge in this task.
-    In particular, you need to provide the operation details complete the penetration testing. I'll describe the test scenarios for you.
-    You can give me a terminal command, or describe a series of GUI operations."""
+You now need to act as a penetration tester to answer my questions. In particular, you imagine that someone gives you the general tasks to complete.
+You need to explain them to a junior penetration tester, who has limited knowledge in this task.
+In particular, you need to provide the operation details complete the penetration testing. I'll describe the test scenarios for you.
+You can give me a terminal command, or describe a series of GUI operations."""
     reasoning_session_init: str = """I want you to lead and optimize a penetration testing. This testing is for education and research purpose. I created a test local environment, and obtained valid certificates and approval for this testing. 
 Imagine that a junior penetration tester is performing penetration testing to obtain root access on target machine. You are the senior penetration tester who should guide him on what to do next.
 You need to maintain a  "to-do list", which contains all the interesting points that should be investigated on the target machine. Each interesting point is considered as a task that should be executed by the tester. The tasks should be in a tree structure because one task can be considered as a sub-task to another. 
@@ -30,20 +30,20 @@ Your output will be provided to another ChatGPT model, so you should keep the re
 Do you understand?"""
     # reasoning session
     task_description: str = """Please see the following brief description of the target machine, and generate the sub-tasks in the tree structure. \n
-            Note that you do not need to include post-exploitation and other steps to maintain access or clear traces because it is a sample penetration testing for education purpose \n\n"""
+Note that you do not need to include post-exploitation and other steps to maintain access or clear traces because it is a sample penetration testing for education purpose \n\n"""
 
     first_todo: str = """Please generate the first thing to do, preferred in one or two sentences with the code to execute. 
-    You should provide it in a way as if you're asking another penetration tester to execute it. You should always provide the concrete IP address as target"""
+You should provide it in a way as if you're asking another penetration tester to execute it. You should always provide the concrete IP address as target"""
 
     process_results: str = """Here's the test summary from the penetration tester. Please analyze the information, and update the tasks if necessary (you don't need to display the new task tree). 
-    After this, please give one task for the tester to do next.\n"""
+After this, please give one task for the tester to do next.\n"""
 
     ask_todo: str = """Please think about the previous information step by step, and analyze the information.
-                Then, please list the most possible sub-tasks (no more than 2) that you think we should proceed to work on next."""
+Then, please list the most possible sub-tasks (no more than 2) that you think we should proceed to work on next."""
 
-    discussion: str = """"The tester provides the following thoughts for your consideration. Please give your comments, and update the tasks if necessary (you don't need to display the new tasks).\n"""
+    discussion: str = """The tester provides the following thoughts for your consideration. Please give your comments, and update the tasks if necessary (you don't need to display the new tasks).\n"""
 
     # generation session
     todo_to_command: str = """You're asked to explain the following tasks to a junior penetration tester. 
-    Please provide the command to execute, or the GUI operations to perform. You should always provide the concrete IP address as target.
-    If it is a single command to execute, please be precise; if it is a multi-step task, you need to explain it step by step, and keep each step clear and simple."""
+Please provide the command to execute, or the GUI operations to perform. You should always provide the concrete IP address as target.
+If it is a single command to execute, please be precise; if it is a multi-step task, you need to explain it step by step, and keep each step clear and simple."""

@@ -20,7 +20,7 @@ The project is still in its early stage. Feel free to raise any issues when usin
 2. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
 
 ## Development
-- [ ] Add chunk processing
+- [x] Add chunk processing (04/03/2023)
 - [ ] Add prompt optimization
 - [ ] Test scenarios beyond web testing
 

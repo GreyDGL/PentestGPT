@@ -15,7 +15,7 @@ from config.chatgpt_config import ChatGPTConfig
 
 logger = loguru.logger
 logger.remove()
-logger.add(level = "WARNING", sink = "logs/chatgpt.log")
+logger.add(level="WARNING", sink="logs/chatgpt.log")
 
 # A sample ChatGPTConfig class has the following structure. All fields can be obtained from the browser's cookie.
 # In particular, cf_clearance、__Secure-next-auth.session-token、_puid are required.
