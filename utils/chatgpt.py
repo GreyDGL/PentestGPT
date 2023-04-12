@@ -101,7 +101,9 @@ class ChatGPT:
         result = json.loads(last_line[5:])
         return result
 
-    def send_new_message(self, message):
+    def send_new_message(self, message, model=None):
+        if model is None:
+            model = self.model
         # 发送新会话窗口消息，返回会话id
         logger.info(f"send_new_message")
         url = "https://chat.openai.com/backend-api/conversation"
@@ -116,7 +118,7 @@ class ChatGPT:
                 }
             ],
             "parent_message_id": str(uuid1()),
-            "model": self.model,
+            "model": model,
         }
         start_time = time.time()
         message: Message = Message()

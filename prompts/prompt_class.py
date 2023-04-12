@@ -19,7 +19,7 @@ Each time you receive an update (you can imagine that the information is from th
 1. Decide to remove some tasks if they are considered as completed.
 2. Decide to add a new task if there's something interesting.
 3. Give scores to each subtasks, showing if it can lead to a potential vulnerability.
-4. Recommend what to do next based on the scores when asked about to-do, listed in sequence as 1, 2, 3, ...
+4. Add a dividing line (--------). Then recommend what to do next based on the scores when asked about to-do, listed in sequence as 1, 2, 3, ...
 Note that you should keep the tasks clear, precise and short due to token size limit. You should remember to remove redundant/outdated tasks due to the same reason. 
 I'll provide the general penetration test information to you shortly."""
     input_parsing_init: str = """I want you to be a help penetration testers for penetration testing by summarizing the contents from the web pages and security tools outputs. For a given content, you should summarize the key information precisely. In particular, 
@@ -36,14 +36,15 @@ Note that you do not need to include post-exploitation and other steps to mainta
 You should provide it in a way as if you're asking another penetration tester to execute it. You should always provide the concrete IP address as target"""
 
     process_results: str = """Here's the test summary from the penetration tester. Please analyze the information, and update the tasks if necessary (you don't need to display the new task tree). 
-After this, please give one task for the tester to do next.\n"""
+After this, please give one task for the tester to do next.\n\n"""
 
     ask_todo: str = """Please think about the previous information step by step, and analyze the information.
 Then, please list the most possible sub-tasks (no more than 2) that you think we should proceed to work on next."""
 
-    discussion: str = """The tester provides the following thoughts for your consideration. Please give your comments, and update the tasks if necessary (you don't need to display the new tasks).\n"""
+    discussion: str = """The tester provides the following thoughts for your consideration. Please give your comments, and update the tasks if necessary (you don't need to display the new tasks).\n\n"""
 
     # generation session
     todo_to_command: str = """You're asked to explain the following tasks to a junior penetration tester. 
-Please provide the command to execute, or the GUI operations to perform. You should always provide the concrete IP address as target.
-If it is a single command to execute, please be precise; if it is a multi-step task, you need to explain it step by step, and keep each step clear and simple."""
+You're provided with a long input from the supervisor GPT model. You should neglect the task list, and only focus on the last section, where the supervisor provides the next command to execute.
+Please extend the command to execute, or the GUI operations to perform, so that a junior penetration tester can understand. You should always provide the concrete IP address as target.
+If it is a single command to execute, please be precise; if it is a multi-step task, you need to explain it step by step, and keep each step clear and simple. The information is below: \n\n"""
