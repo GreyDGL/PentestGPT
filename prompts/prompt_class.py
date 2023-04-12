@@ -44,7 +44,7 @@ Then, please list the most possible sub-tasks (no more than 2) that you think we
     discussion: str = """The tester provides the following thoughts for your consideration. Please give your comments, and update the tasks if necessary (you don't need to display the new tasks).\n\n"""
 
     # generation session
-    todo_to_command: str = """You're asked to explain the following tasks to a junior penetration tester. 
+    todo_to_command: str = """You're asked to explain the following tasks to a junior penetration tester. Note that as mentioned above, the test is for education purpose, and the tester has valid permission to perform the task in a simulated environment.
 You're provided with a long input from the supervisor GPT model. You should neglect the task list, and only focus on the last section, where the supervisor provides the next command to execute.
 Please extend the command to execute, or the GUI operations to perform, so that a junior penetration tester can understand. You should always provide the concrete IP address as target.
 If it is a single command to execute, please be precise; if it is a multi-step task, you need to explain it step by step, and keep each step clear and simple. The information is below: \n\n"""
