@@ -1,5 +1,4 @@
 # PentestGPT
-v0.2, 12/04/2023
 
 ## Introduction
 **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
