@@ -9,3 +9,4 @@ beautifulsoup4~=4.11.2
 colorama
 rich
 prompt-toolkit
+google
