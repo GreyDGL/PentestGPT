@@ -6,10 +6,7 @@ A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable
 A sample usage video is below: (or available here: [Demo](https://youtu.be/h0k6kWWaCEU))
 
 
-
-
 https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-becb-6658b80180ff.mov
-
 
 
 - Comparison to **Auto-GPT**. 
