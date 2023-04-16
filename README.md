@@ -5,9 +5,11 @@
 A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable II) is available at [here](./resources/PentestGPT_Hackable2.pdf).
 A sample usage video is below: (or available here: [Demo](https://youtu.be/h0k6kWWaCEU))
 
-<video src='https://youtu.be/h0k6kWWaCEU' width=180/>
 
->>>>>>> 9f2020f (update README)
+
+
+https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-becb-6658b80180ff.mov
+
 
 
 - Comparison to **Auto-GPT**. 
