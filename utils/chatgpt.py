@@ -19,6 +19,7 @@ logger.add(level="WARNING", sink="logs/chatgpt.log")
 
 # A sample ChatGPTConfig class has the following structure. All fields can be obtained from the browser's cookie.
 # In particular, cf_clearance、__Secure-next-auth.session-token、_puid are required.
+# Update: the login is currently not available. The current solution is to paste in the full cookie.
 
 # @dataclasses.dataclass
 # class ChatGPTConfig:
@@ -67,10 +68,11 @@ class ChatGPT:
         self.conversation_dict: Dict[str, Conversation] = {}
         self.headers = dict(
             {
-                "cookie": f"cf_clearance={self.cf_clearance}; _puid={self._puid}; "
-                f"__Secure-next-auth.session-token={self.session_token}",
-                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+                # "cookie": f"cf_clearance={self.cf_clearance}; _puid={self._puid}; __cf_bm=Nl7zy2rM7a8Ix1MB64EyiG5vePkLZ0HX2RtJuj1SYT4-1681638176-0-AUS+5CeavTt8Xs/aw07CxlVVfvtjjfcLCxru0byb1OdTmb5UpP6kbVhesib0j8vJblhaO19VTr7wVEtr46iiA7D+4zVNYD0b4Lh6gZ5wBXlSmf0lrOl/vDhtCn4WOiY92Uu2+6JqWAk6gtHYfSx+waQqzaKIPQnQMNti2IrpyZZd; __Secure-next-auth.callback-url=https%3A%2F%2Fchat.openai.com%2F; __Host-next-auth.csrf-token=0b7e3bb24cc2f1d21030a03269484f928527e4aab16c9b4d344529ee46ca9fe8%7C2a6e7e38eaac7ca8cbcae40912bade72150d8aa18317e3db74f49b125957613a;_cfuvid=FpwoyzyYPrG0a0NqtkhvayIWPZmzOQc4B9g3pEunvo8-1681470057686-0-604800000"
+                # f"__Secure-next-auth.session-token={self.session_token}",
+                "cookie": self.config.cookie,
+                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+                "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
                 # 'Content-Type': 'text/event-stream; charset=utf-8',
             }
         )
@@ -80,12 +82,15 @@ class ChatGPT:
         url = "https://chat.openai.com/api/auth/session"
         r = requests.get(url, headers=self.headers)
         authorization = r.json()["accessToken"]
+        # authorization = self.config.accessToken
         return "Bearer " + authorization
 
     def get_latest_message_id(self, conversation_id):
         # Get continuous conversation message id
         url = f"https://chat.openai.com/backend-api/conversation/{conversation_id}"
+        print(self.headers)
         r = requests.get(url, headers=self.headers, proxies=self.proxies)
+
         return r.json()["current_node"]
 
     def _parse_message_raw_output(self, response: requests.Response):

@@ -5,6 +5,13 @@ from urllib.parse import urlparse, urljoin
 from googlesearch import search
 
 
+######### Quick documentation #########
+## Use get response to get the original response from the URL
+## Use parse_web to get the text from the URL (bs4 handled)
+## Use google_search to get the search results from Google. Results are already parsed.
+#######################################
+
+
 # Function to check if the URL is valid
 def is_valid_url(url):
     try:
@@ -29,7 +36,7 @@ def check_local_file_access(url):
     return any(url.startswith(prefix) for prefix in local_prefixes)
 
 
-def get_response(url, timeout=10):
+def get_response(url, timeout=10) -> tuple:
     """
     Get the response from the URL.
 
@@ -76,7 +83,7 @@ def get_response(url, timeout=10):
         return None, "Error: " + str(re)
 
 
-def parse_web(url):
+def parse_web(url) -> str:
     # create a user agent header
     response, potential_error = get_response(url)
     if response is None:
@@ -98,6 +105,24 @@ def parse_web(url):
 
     return text
 
+def google_search(keyword, num_results=5) -> dict:
+    """
+    Search on Google and return the results.
+
+    Parameters:
+    ----------
+        keyword (str): The keyword to search on Google.
+        num_results (int): The number of results to return.
+
+    Returns:
+    -------
+        result (dict): The search results. Format: {"keyword": keyword, "search_result": {url, content}}}
+
+    """
+    search_result = {}
+    for url in search(keyword, tld="com", num=num_results, stop=num_results, pause=2):
+        search_result[url] = parse_web(url)
+    result = {"keyword": keyword, "search_result": search_result}
 
 if __name__ == "__main__":
     # test to query google search on "what is penetration testing?"
