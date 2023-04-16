@@ -3,6 +3,9 @@
 ## Introduction
 **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
 A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable II) is available at [here](./resources/PentestGPT_Hackable2.pdf).
+A sample usage video is below:
+[![Demo Video](https://youtu.be/h0k6kWWaCEU)](https://youtu.be/h0k6kWWaCEU)
+
 
 - Comparison to **Auto-GPT**. 
   - Using [Auto-GPT](https://github.com/Torantulino/Auto-GPT) in security testing is good, but it is not optimized for security-related tasks. 
