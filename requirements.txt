@@ -10,3 +10,4 @@ colorama
 rich
 prompt-toolkit
 google
+pytest
