@@ -105,6 +105,7 @@ def parse_web(url) -> str:
 
     return text
 
+
 def google_search(keyword, num_results=5) -> dict:
     """
     Search on Google and return the results.
@@ -123,6 +124,7 @@ def google_search(keyword, num_results=5) -> dict:
     for url in search(keyword, tld="com", num=num_results, stop=num_results, pause=2):
         search_result[url] = parse_web(url)
     result = {"keyword": keyword, "search_result": search_result}
+
 
 if __name__ == "__main__":
     # test to query google search on "what is penetration testing?"
