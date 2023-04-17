@@ -16,6 +16,7 @@ class mainTaskCompleter(Completer):
         "more",
         "todo",
         "discuss",
+        "google",
         "help",
         "quit",
     ]
@@ -25,6 +26,7 @@ class mainTaskCompleter(Completer):
         "more": HTML("Explain the task with more details."),
         "todo": HTML("Ask <b>PentestGPT</b> for todos."),
         "discuss": HTML("Discuss with <b>PentestGPT</b>."),
+        "google": HTML("Search on Google."),
         "help": HTML("Show the help page."),
         "quit": HTML("End the current session."),
     }
@@ -35,6 +37,7 @@ Below are the available tasks:
  - more: Explain the previous given task with more details.
  - todo: Ask PentestGPT for the task list and what to do next.
  - discuss: Discuss with PentestGPT. You can ask for help, discuss the task, or give any feedbacks.
+ - google: Search your question on Google. The results are automatically parsed by Google.
  - help: Show this help page.
  - quit: End the current session."""
 
