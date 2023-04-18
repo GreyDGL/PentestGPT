@@ -21,6 +21,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
 
 ## Contribute
 - The project is still in its early stage. Feel free to raise any issues when using the tool. 
+- Please help to contribute by submitting the vulnerabilities you identified or challenges you solved with **PentestGPT**.
 - This project is for research purpose. Please contact me if you're interested in collaboration.
 
 ## Installation
