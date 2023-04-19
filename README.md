@@ -1,10 +1,5 @@
 # PentestGPT
 
-17/04/2023: Due to the additional verification by OpenAI, you now need to pass the full `cookie` variable into the session. 
-You can obtain it from `https://chat.openai.com/api/auth/session`, by examining the HTTP request cookie. Check the updated chatgpt_config_sample.
-I'll try to fix this later.
-
-
 ## Introduction
 **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
 A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable II) is available at [here](./resources/PentestGPT_Hackable2.pdf).
