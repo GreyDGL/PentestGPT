@@ -124,6 +124,7 @@ def google_search(keyword, num_results=5) -> dict:
     for url in search(keyword, tld="com", num=num_results, stop=num_results, pause=2):
         search_result[url] = parse_web(url)
     result = {"keyword": keyword, "search_result": search_result}
+    return result
 
 
 if __name__ == "__main__":

@@ -1,3 +1,4 @@
+# This file is deprecated. It is not used in the project.
 # -*- coding: utf-8 -*-
 
 import json
@@ -5,12 +6,13 @@ import re
 import time
 from uuid import uuid1
 import datetime
+from chatgpt_wrapper import OpenAIAPI
 
 import loguru
 import requests
 
 from chatgpt_wrapper import ChatGPT
-from chatgpt_wrapper.config import Config
+from config.chatgpt_config import ChatGPTConfig
 
 logger = loguru.logger
 
@@ -22,7 +24,7 @@ class ChatGPTBrowser:
     """
 
     def __init__(self, model=None):
-        config = Config()
+        config = ChatGPTConfig()
         if model is not None:
             config.set("chat.model", model)
         self.bot = ChatGPT(config)
@@ -48,6 +50,7 @@ class ChatGPTBrowser:
     def send_message(self, message, conversation_id):
         # 发送会话窗口消息
         # TODO: send message from browser
+        # check here: https://github.com/mmabrouk/chatgpt-wrapper/blob/bafd0be7fb3355ea4a4b0276ade9f0fc6e8571fd/chatgpt_wrapper/backends/openai/repl.py#L101
         return
 
     def extract_code_fragments(self, text):
@@ -61,7 +64,14 @@ class ChatGPTBrowser:
 
 
 if __name__ == "__main__":
-    chatgptBrowser_session = ChatGPTBrowser()
-    text, conversation_id = chatgptBrowser_session.send_new_message(
-        "I am a new tester for RESTful APIs."
-    )
+    # chatgptBrowser_session = ChatGPTBrowser()
+    # text, conversation_id = chatgptBrowser_session.send_new_message(
+    #     "I am a new tester for RESTful APIs."
+    # )
+
+    bot = OpenAIAPI()
+    success, response, message = bot.ask("Hello, world!")
+    if success:
+        print(response)
+    else:
+        raise RuntimeError(message)
