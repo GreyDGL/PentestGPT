@@ -11,3 +11,4 @@ rich
 prompt-toolkit
 google
 pytest
+openai

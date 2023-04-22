@@ -68,9 +68,9 @@ class ChatGPT:
         self.conversation_dict: Dict[str, Conversation] = {}
         self.headers = dict(
             {
-                "cookie": f"cf_clearance={self.cf_clearance}; _puid={self._puid}; __Secure-next-auth.session-token={self.session_token}",
-                # "cookie": self.config.cookie,
-                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+                # "cookie": f"cf_clearance={self.cf_clearance}; _puid={self._puid}; __Secure-next-auth.session-token={self.session_token}",
+                "cookie": self.config.cookie,
+                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
                 "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
                 # 'Content-Type': 'text/event-stream; charset=utf-8',
             }
@@ -79,6 +79,8 @@ class ChatGPT:
 
     def get_authorization(self):
         url = "https://chat.openai.com/api/auth/session"
+        if "cookie" in vars(self.config):
+            self.headers["cookie"] = self.config.cookie
         r = requests.get(url, headers=self.headers)
         authorization = r.json()["accessToken"]
         # authorization = self.config.accessToken
