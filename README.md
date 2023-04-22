@@ -1,6 +1,6 @@
 # PentestGPT
 
-**We're testing PentestGPT on HackTheBox**. Follow 
+**We're testing PentestGPT on HackTheBox**. More details will be released soon.
 
 ## Introduction
 **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
@@ -42,6 +42,10 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
    2. You can use <SHIFT + right arrow> to end your input (and <ENTER> is for next line).
    3. You may always use `TAB` to autocomplete the commands.
    4. When you're given a drop-down selection list, you can use cursor or arrow key to navigate the list. Press `ENTER` to select the item. Similarly, use <SHIFT + right arrow> to confirm selection.
+
+## Report
+1. After finishing the penetration testing, a report will be automatically generated in `logs` folder (if you quit with `quit` command).
+2. The report can be printed in a human-readable format by running `python3 utils/report_generator.py <log file>`. A sample report `sample_pentestGPT_log.txt` is also uploaded.
 
 
 ## Design Documentation

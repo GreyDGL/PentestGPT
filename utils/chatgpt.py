@@ -132,6 +132,7 @@ class ChatGPT:
         r = requests.post(
             url, headers=self.headers, json=data, proxies=self.proxies, stream=True
         )
+
         if r.status_code != 200:
             # wait for 20s
             logger.error(r.text)
