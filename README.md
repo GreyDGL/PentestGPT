@@ -1,6 +1,6 @@
 # PentestGPT
 
-**We're testing PentestGPT on HackTheBox**. More details will be released soon.
+**We're testing PentestGPT on HackTheBox**. You may follow [this link](https://www.hackthebox.com/home/users/profile/1489431). More details will be released soon.
 
 ## Introduction
 **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
