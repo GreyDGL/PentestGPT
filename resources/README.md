@@ -6,7 +6,7 @@ This directory contains resources for the project.
 
 
 # Demo
-Below we show a demo conversation of how **PentestGPT** solves HTB challenge **template** (a walkthrough is [here](https://shakuganz.com/2021/06/13/hackthebox-templated-write-up/))
+Below we show a demo conversation of how **PentestGPT** solves HTB challenge **Templated** (a walkthrough is [here](https://shakuganz.com/2021/06/13/hackthebox-templated-write-up/))
 
 ~~~text
 2023-04-23 21:24:26 [user]: I want to test a HTB challenge machine. It is a web challenge, and the target is
