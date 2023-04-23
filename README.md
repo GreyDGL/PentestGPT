@@ -38,6 +38,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
       - `more`: let **PentestGPT** to explain more details of the current step.
       - `todo`: show the todo list.
       - `discuss`: discuss with the **PentestGPT**.
+      - `google`: search on Google. This function is still under development.
       - `exit`: exit the tool.
    2. You can use <SHIFT + right arrow> to end your input (and <ENTER> is for next line).
    3. You may always use `TAB` to autocomplete the commands.
