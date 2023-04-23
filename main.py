@@ -1,8 +1,6 @@
 import loguru
+import sys
 
-from config.chatgpt_config import ChatGPTConfig
-from utils.chatgpt import ChatGPT
-from rich.prompt import Prompt
 from utils.pentest_gpt import pentestGPT
 
 logger = loguru.logger
