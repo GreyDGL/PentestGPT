@@ -33,6 +33,7 @@ def main(file_name):
 
     print(output)
 
+
 if __name__ == "__main__":
     # default filename = "../logs/sample_pentestGPT_log.txt"
     if len(sys.argv) == 1:
