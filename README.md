@@ -2,6 +2,21 @@
 
 **We're testing PentestGPT on HackTheBox**. You may follow [this link](https://www.hackthebox.com/home/users/profile/1489431). More details will be released soon.
 
+## Common Questions
+- **Q**: What is PentestGPT?
+  - **A**: PentestGPT is a penetration testing tool empowered by ChatGPT. It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
+- **Q**: Do I need to be a ChatGPT plus member to use PentestGPT?
+  - **A**: Yes. PentestGPT relies on GPT-4 model for high-quality reasoning. Since there is no public GPT-4 API yet, a wrapper is included to use ChatGPT session to support PentestGPT.
+- **Q**: Why GPT-4?
+  - **A**: After empirical evaluation, we found that GPT-4 performs better than GPT-3.5 in terms of penetration testing reasoning. In fact, GPT-3.5 leads to failed test in simple tasks.
+- **Q**: Why not just use GPT-4 directly?
+  - **A**: We found that GPT-4 suffers from losses of context as test goes deeper. It is essential to maintain a "test status awareness" in this process. You may check the PentestGPT design [here](./PentestGPT_design.md) for more details.
+- **Q**: What about AutoGPT?
+  - **A**: AutoGPT is not designed for pentest. It may perform malicious operations. Due to this consideration, we design PentestGPT in an interactive mode. Of course, our end goal is an automated pentest solution.
+- **Q**: Future plan?
+  - **A**: We're working on a paper to explore the tech details behind automated pentest. Meanwhile, please feel free to raise issues/discussions. I'll do my best to address all of them.
+
+
 ## Introduction
 - **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. 
 - It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
@@ -9,14 +24,7 @@
 - A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable II) is available at [here](./resources/PentestGPT_Hackable2.pdf).
 - A sample usage video is below: (or available here: [Demo](https://youtu.be/h0k6kWWaCEU))
 
-
 https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-becb-6658b80180ff.mov
-
-
-- Comparison to **Auto-GPT**. 
-  - Using [Auto-GPT](https://github.com/Torantulino/Auto-GPT) in security testing is good, but it is not optimized for security-related tasks. 
-  - **PentestGPT** is designed for penetration testing with a customized session interaction (see [here](./PentestGPT_design.md) for the detailed design).
-  - Currently, **PentestGPT** does not rely on search engine. The "Google-enhanced" version of **PentestGPT** is under development.
 
 ## Contribute
 - The project is still in its early stage. Feel free to raise any issues when using the tool. 
@@ -70,10 +78,3 @@ The handler is the main entry point of the penetration testing tool. It allows p
    2. Pass a webpage content.
    3. Pass a human description.
 
-## Update history
-### v0.3
-- Prompt usage optimization.
-- Documentation improvements.
-### v0.2
-- A major update to improve the terminal usage
-- Prompt optimization.
