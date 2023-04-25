@@ -20,7 +20,7 @@
 ## Introduction
 - **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. 
 - It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
-- **PentestGPT** is able to solve easy to medium HackTheBox machines, and other CTF challenges. You can check [this](./resources/README.md) example in `resources` where we use it to solve HackTheBox challenge *template*. 
+- **PentestGPT** is able to solve easy to medium HackTheBox machines, and other CTF challenges. You can check [this](./resources/README.md) example in `resources` where we use it to solve HackTheBox challenge **TEMPLATED** (web challenge). 
 - A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable II) is available at [here](./resources/PentestGPT_Hackable2.pdf).
 - A sample usage video is below: (or available here: [Demo](https://youtu.be/h0k6kWWaCEU))
 
@@ -34,7 +34,11 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
 ## Installation
 1. Install `requirements.txt` with `pip install -r requirements.txt`
 2. (Deprecated: Will update support for non-plus member later.) ~~Install `chatgpt-wrapper` if you're non-plus members: `pip install git+https://github.com/mmabrouk/chatgpt-wrapper`. More details at: https://github.com/mmabrouk/chatgpt-wrapper. Note that the support for non-plus members are not optimized.~~
-3. Configure the keys in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py. config/chatgpt_config.py`.
+3. Configure the cookies in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py. config/chatgpt_config.py`.
+    - Login to ChatGPT session page.
+    - Find the request cookies to `https://chat.openai.com/api/auth/session` and paste it into the `cookie` field of `config/chatgpt_config.py`. (You may use Inspect->Network, find session and copy the `cookie` field in `request_headers` to `https://chat.openai.com/api/auth/session`)
+    - Note that the other fields are temporarily deprecated due to the update of ChatGPT page. 
+4. To verify that the connection is configured properly, you may run `python3 utils/chatgpt.py`. You should see some sample conversation with ChatGPT.
 
 
 
