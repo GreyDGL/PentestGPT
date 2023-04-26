@@ -38,7 +38,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
     - Login to ChatGPT session page.
     - Find the request cookies to `https://chat.openai.com/api/auth/session` and paste it into the `cookie` field of `config/chatgpt_config.py`. (You may use Inspect->Network, find session and copy the `cookie` field in `request_headers` to `https://chat.openai.com/api/auth/session`)
     - Note that the other fields are temporarily deprecated due to the update of ChatGPT page. 
-4. To verify that the connection is configured properly, you may run `python3 utils/chatgpt.py`. You should see some sample conversation with ChatGPT.
+4. To verify that the connection is configured properly, you may run `python3 test_connection.py`. You should see some sample conversation with ChatGPT.
 
 
 
@@ -53,7 +53,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
       - `todo`: show the todo list.
       - `discuss`: discuss with the **PentestGPT**.
       - `google`: search on Google. This function is still under development.
-      - `exit`: exit the tool.
+      - `quit`: exit the tool and save the output as log file (see the **reporting** section below).
    2. You can use <SHIFT + right arrow> to end your input (and <ENTER> is for next line).
    3. You may always use `TAB` to autocomplete the commands.
    4. When you're given a drop-down selection list, you can use cursor or arrow key to navigate the list. Press `ENTER` to select the item. Similarly, use <SHIFT + right arrow> to confirm selection.

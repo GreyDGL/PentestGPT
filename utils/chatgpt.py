@@ -61,9 +61,9 @@ class ChatGPT:
         self.config = config
         self.model = config.model
         self.proxies = {"https": ""}
-        self._puid = config._puid
-        self.cf_clearance = config.cf_clearance
-        self.session_token = config.session_token
+        # self._puid = config._puid
+        # self.cf_clearance = config.cf_clearance
+        # self.session_token = config.session_token
         # conversation_id: message_id
         self.conversation_dict: Dict[str, Conversation] = {}
         self.headers = dict(
