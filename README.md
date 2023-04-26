@@ -51,7 +51,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
    1. The commands are: 
       - `help`: show the help message.
       - `next`: key in the test execution result and get the next step.
-      - `more`: let **PentestGPT** to explain more details of the current step.
+      - `more`: let **PentestGPT** to explain more details of the current step. Also, a new sub-task solver will be created to guide the tester.
       - `todo`: show the todo list.
       - `discuss`: discuss with the **PentestGPT**.
       - `google`: search on Google. This function is still under development.
@@ -59,7 +59,13 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
    2. You can use <SHIFT + right arrow> to end your input (and <ENTER> is for next line).
    3. You may always use `TAB` to autocomplete the commands.
    4. When you're given a drop-down selection list, you can use cursor or arrow key to navigate the list. Press `ENTER` to select the item. Similarly, use <SHIFT + right arrow> to confirm selection.
-
+4. In the sub-task handler initiated by `more`, users can execute more commands to investigate into a specific problem:
+   1. The commands are:
+        - `help`: show the help message.
+        - `brainstorm`: let PentestGPT brainstorm on the local task for all the possible solutions.
+        - `discuss`: discuss with PentestGPT about this local task.
+        - `google`: search on Google. This function is still under development.
+        - `continue`: exit the sub task and continue the main testing session.
 ## Report
 1. After finishing the penetration testing, a report will be automatically generated in `logs` folder (if you quit with `quit` command).
 2. The report can be printed in a human-readable format by running `python3 utils/report_generator.py <log file>`. A sample report `sample_pentestGPT_log.txt` is also uploaded.
