@@ -10,6 +10,43 @@ from prompt_toolkit.formatted_text import HTML
 from prompt_toolkit.shortcuts import CompleteStyle, prompt
 
 
+class localTaskCompleter(Completer):
+    tasks = [
+        "discuss",  # discuss with pentestGPT on the local task
+        "brainstorm",  # let pentestGPT brainstorm on the local task
+        "help",  # show the help page (for this local task)
+        "google",  # search on Google
+        "continue",  # quit the local task  (for this local task)
+    ]
+
+    task_meta = {
+        "discuss": HTML("Discuss with <b>PentestGPT</b> about this local task."),
+        "brainstorm": HTML("Let <b>PentestGPT</b> brainstorm on the local task for all the possible solutions."),
+        "help": HTML("Show the help page for this local task."),
+        "google": HTML("Search on Google."),
+        "continue": HTML("Quit the local task and continue the previous testing."),
+    }
+
+    task_details = """
+Below are the available tasks:
+    - discuss: Discuss with PentestGPT about this local task.
+    - brainstorm: Let PentestGPT brainstorm on the local task for all the possible solutions.
+    - help: Show the help page for this local task.
+    - google: Search on Google.
+    - quit: Quit the local task and continue the testing."""
+
+    def get_completions(self, document, complete_event):
+        word = document.get_word_before_cursor()
+        for task in self.tasks:
+            if task.startswith(word):
+                yield Completion(
+                    task,
+                    start_position=-len(word),
+                    display=task,
+                    display_meta=self.task_meta.get(task),
+                )
+
+
 class mainTaskCompleter(Completer):
     tasks = [
         "next",
@@ -58,6 +95,18 @@ def main_task_entry(text="> "):
     Entry point for the task prompt. Auto-complete
     """
     task_completer = mainTaskCompleter()
+    while True:
+        result = prompt(text, completer=task_completer)
+        if result not in task_completer.tasks:
+            print("Invalid task, try again.")
+        else:
+            return result
+
+def local_task_entry(text="> "):
+    """
+    Entry point for the task prompt. Auto-complete
+    """
+    task_completer = localTaskCompleter()
     while True:
         result = prompt(text, completer=task_completer)
         if result not in task_completer.tasks:

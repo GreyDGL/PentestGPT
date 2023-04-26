@@ -11,11 +11,12 @@ if __name__ == "__main__":
     chatgpt_config = ChatGPTConfig()
     try:
         chatgpt = ChatGPT(chatgpt_config)
-        text, conversation_id = chatgpt.send_new_message(
-            "Create a conversation for testing"
-        )
-        # print(text, conversation_id)
-        print("Now you're connected. To start PentestGPT, please use <python3 main.py>")
+        conversations = chatgpt.get_conversation_history()
+        print(conversations)
+        if conversations != None:
+            # print(text, conversation_id)
+            print("Now you're connected. To start PentestGPT, please use <python3 main.py>")
+        else:
+            print("The cookie is not properly configured. Please follow README to update cookie in config/chatgpt_config.py")
     except requests.exceptions.JSONDecodeError:
         print("The cookie is not properly configured. Please follow README to update cookie in config/chatgpt_config.py")
-        sys.exit(1)
