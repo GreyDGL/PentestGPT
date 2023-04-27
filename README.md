@@ -1,6 +1,7 @@
 # PentestGPT
 
 **We're testing PentestGPT on HackTheBox**. You may follow [this link](https://www.hackthebox.com/home/users/profile/1489431). More details will be released soon.
+**We include a video of using PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
 
 ## Common Questions
 - **Q**: What is PentestGPT?
