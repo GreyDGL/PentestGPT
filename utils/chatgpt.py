@@ -65,21 +65,18 @@ class ChatGPT:
         # self.cf_clearance = config.cf_clearance
         # self.session_token = config.session_token
         # conversation_id: message_id
+        if not "cookie" in vars(self.config):
+            raise Exception("Please update cookie in config/chatgpt_config.py")
         self.conversation_dict: Dict[str, Conversation] = {}
-        self.headers = dict(
-            {
-                # "cookie": f"cf_clearance={self.cf_clearance}; _puid={self._puid}; __Secure-next-auth.session-token={self.session_token}",
-                "cookie": self.config.cookie,
-                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
-                "accept": "*/*",
+        self.headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0',
+                'Accept': '*/*',
+                "Cookie": self.config.cookie
             }
-        )
         self.headers["authorization"] = self.get_authorization()
 
     def get_authorization(self):
         url = "https://chat.openai.com/api/auth/session"
-        if "cookie" in vars(self.config):
-            self.headers["cookie"] = self.config.cookie
         r = requests.get(url, headers=self.headers)
         authorization = r.json()["accessToken"]
         # authorization = self.config.accessToken
