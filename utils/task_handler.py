@@ -21,7 +21,9 @@ class localTaskCompleter(Completer):
 
     task_meta = {
         "discuss": HTML("Discuss with <b>PentestGPT</b> about this local task."),
-        "brainstorm": HTML("Let <b>PentestGPT</b> brainstorm on the local task for all the possible solutions."),
+        "brainstorm": HTML(
+            "Let <b>PentestGPT</b> brainstorm on the local task for all the possible solutions."
+        ),
         "help": HTML("Show the help page for this local task."),
         "google": HTML("Search on Google."),
         "continue": HTML("Quit the local task and continue the previous testing."),
@@ -101,6 +103,7 @@ def main_task_entry(text="> "):
             print("Invalid task, try again.")
         else:
             return result
+
 
 def local_task_entry(text="> "):
     """

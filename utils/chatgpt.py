@@ -68,11 +68,8 @@ class ChatGPT:
         if not "cookie" in vars(self.config):
             raise Exception("Please update cookie in config/chatgpt_config.py")
         self.conversation_dict: Dict[str, Conversation] = {}
-        self.headers = {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0',
-                'Accept': '*/*',
-                "Cookie": self.config.cookie
-            }
+        self.headers = {"Accept": "*/*", "Cookie": self.config.cookie}
+        self.headers["User-Agent"] = self.config.userAgent
         self.headers["authorization"] = self.get_authorization()
 
     def get_authorization(self):
