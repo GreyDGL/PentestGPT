@@ -6,6 +6,7 @@ import re
 import time
 from typing import Any, Dict, List, Tuple
 from uuid import uuid1
+import openai
 
 import loguru
 import requests
@@ -54,6 +55,29 @@ class Conversation:
         if not isinstance(other, Conversation):
             return False
         return self.conversation_id == other.conversation_id
+
+
+def chatgpt_completion(history: List) -> str:
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=history,
+    )
+    return response["choices"][0]["message"]["content"]
+
+
+class ChatGPTAPI:
+    def __init__(self, config: ChatGPTConfig):
+        self.config = config
+        openai.api_key = chatgpt_config.openai_key
+
+    def send_message(self, message):
+        history = [{"role": "user", "content": message}]
+        response = chatgpt_completion(history)
+        return response
+
+    def extract_code_fragments(self, text):
+        code_fragments = re.findall(r"```(.*?)```", text, re.DOTALL)
+        return code_fragments
 
 
 class ChatGPT:
