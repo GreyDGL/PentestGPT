@@ -41,20 +41,22 @@ class Conversation:
         return self.conversation_id == other.conversation_id
 
 
-def chatgpt_completion(history: List) -> str:
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=history,
-    )
-    return response["choices"][0]["message"]["content"]
-
-
 class ChatGPTAPI:
     def __init__(self, config: ChatGPTConfig):
         self.config = config
         openai.api_key = config.openai_key
         self.history_length = 3  # maintain 3 messages in the history. (3 chat memory)
         self.conversation_dict: Dict[str, Conversation] = {}
+
+    def chatgpt_completion(self, history: List, model="gpt-3.5-turbo") -> str:
+        if self.config.model == "gpt-4":
+            model = "gpt-4"
+            # otherwise, just use the default model (because it is cheaper lol)
+        response = openai.ChatCompletion.create(
+            model=model,
+            messages=history,
+        )
+        return response["choices"][0]["message"]["content"]
 
     def send_new_message(self, message):
         # create a message
@@ -65,7 +67,7 @@ class ChatGPTAPI:
         message.ask_id = str(uuid1())
         message.ask = data
         message.request_start_timestamp = start_time
-        response = chatgpt_completion(history)
+        response = self.chatgpt_completion(history)
         message.answer = response
         message.request_end_timestamp = time.time()
         message.time_escaped = (
@@ -100,7 +102,7 @@ class ChatGPTAPI:
         message.ask_id = str(uuid1())
         message.ask = data
         message.request_start_timestamp = time.time()
-        response = chatgpt_completion(chat_message)
+        response = self.chatgpt_completion(chat_message)
 
         # update the conversation
         message.answer = response

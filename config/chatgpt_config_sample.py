@@ -3,7 +3,10 @@ import dataclasses
 
 @dataclasses.dataclass
 class ChatGPTConfig:
+    # if you're using chatGPT (not API), please use "text-davinci-002-render-sha"
+    # if you're using API, you may configure based on your needs
     model: str = "text-davinci-002-render-sha"
+
     # set up the openai key
     openai_key = ""
     # set the user-agent below

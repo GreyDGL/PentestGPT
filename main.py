@@ -9,7 +9,7 @@ if __name__ == "__main__":
     pentestGPTHandler = pentestGPT(reasoning_model="gpt-4", useAPI=False)
 
     # you may use this one if you want to use OpenAI API (without GPT-4)
-    # pentestGPTHandler = pentestGPT(reasoning_model="gpt-4", useAPI=True)
+    # pentestGPTHandler = pentestGPT(reasoning_model="gpt-3.5-turbo", useAPI=True)
 
     # you may use this one if you want to use OpenAI API with GPT-4
     # pentestGPTHandler = pentestGPT(reasoning_model="gpt-4", useAPI=True)
