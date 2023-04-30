@@ -11,12 +11,12 @@ import openai
 import loguru
 import requests
 
-
 from config.chatgpt_config import ChatGPTConfig
 
 logger = loguru.logger
 logger.remove()
 logger.add(level="WARNING", sink="logs/chatgpt.log")
+
 
 # A sample ChatGPTConfig class has the following structure. All fields can be obtained from the browser's cookie.
 # In particular, cf_clearance、__Secure-next-auth.session-token、_puid are required.
@@ -89,7 +89,7 @@ class ChatGPT:
         # self.cf_clearance = config.cf_clearance
         # self.session_token = config.session_token
         # conversation_id: message_id
-        if not "cookie" in vars(self.config):
+        if "cookie" not in vars(self.config):
             raise Exception("Please update cookie in config/chatgpt_config.py")
         self.conversation_dict: Dict[str, Conversation] = {}
         self.headers = {"Accept": "*/*", "Cookie": self.config.cookie}

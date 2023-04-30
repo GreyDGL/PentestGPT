@@ -6,25 +6,14 @@ from utils.pentest_gpt import pentestGPT
 logger = loguru.logger
 
 if __name__ == "__main__":
-    pentestGPTHandler = pentestGPT()
-    pentestGPTHandler.main()
+    pentestGPTHandler = pentestGPT(reasoning_model="gpt-4", useAPI=False)
 
-    # the previous example
-    """
-    chatGPTAgent = ChatGPT(ChatGPTConfig())
-    # request user's input to create a new chat.
-    question = Prompt.ask("What do you want to ask ChatGPT?")
-    # the title of this conversation will be new-chat. We can delete it later.
-    text, conversation_id = chatGPTAgent.send_new_message(question)
-    print(text, conversation_id)
-    # get history id
-    history = chatGPTAgent.get_conversation_history()
-    print(history)
-    for uuid in history:
-        print(uuid)
-        if history[uuid].lower() == "new chat":
-            result = chatGPTAgent.delete_conversation(uuid)
-            print(result)
-    history = chatGPTAgent.get_conversation_history()
-    print(history)
-    """
+    # you may use this one if you want to use OpenAI API (without GPT-4)
+    # pentestGPTHandler = pentestGPT(reasoning_model="gpt-4", useAPI=True)
+
+    # you may use this one if you want to use OpenAI API with GPT-4
+    # pentestGPTHandler = pentestGPT(reasoning_model="gpt-4", useAPI=True)
+
+    # configure the session
+    # TODO: add param parsing
+    pentestGPTHandler.main()

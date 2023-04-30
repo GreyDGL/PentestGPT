@@ -1,6 +1,6 @@
 # PentestGPT
 
-- [Update on 29/04/2023] I will release an official support for OpenAI API soon (hopefully in the next two days). The current update is for testing only.
+- [Update on 30/04/2023] The support to OpenAI API is available! I'll implement a input param parser for it soon. You can now freely configure the OpenAI model in `main.py` (several examples are included).
 - **We're testing PentestGPT on HackTheBox**. You may follow [this link](https://www.hackthebox.com/home/users/profile/1489431). More details will be released soon.
 - **We include a video of using PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
 

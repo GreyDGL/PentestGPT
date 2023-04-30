@@ -11,3 +11,4 @@ prompt-toolkit
 google
 pytest
 openai
+langchain
