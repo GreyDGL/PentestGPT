@@ -44,7 +44,6 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
        - Fill in `userAgent` with your user agent.
    - If you're using API:
        - Fill in the OpenAI API key in `chatgpt_config.py`.
-       - In `main.py`, change `useAPI` to `True`, and set the preferred model.
 3. To verify that the connection is configured properly, you may run `python3 test_connection.py`. You should see some sample conversation with ChatGPT.
    - A sample output is below
    ```
@@ -55,7 +54,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
    ## Test connection for OpenAI api (GPT-3.5)
    3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI=True>
    ```
-4. (Notice) The above verification process is not stable. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`
+4. (Notice) The above verification process for cookie. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`. Please submit an issue if you encounter any problem.
 
 
 
@@ -86,7 +85,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
         - `brainstorm`: let PentestGPT brainstorm on the local task for all the possible solutions.
         - `discuss`: discuss with PentestGPT about this local task.
         - `google`: search on Google. This function is still under development.
-        - `continue`: exit the sub task and continue the main testing session.
+        - `continue`: exit the subtask and continue the main testing session.
 ## Report
 1. After finishing the penetration testing, a report will be automatically generated in `logs` folder (if you quit with `quit` command).
 2. The report can be printed in a human-readable format by running `python3 utils/report_generator.py <log file>`. A sample report `sample_pentestGPT_log.txt` is also uploaded.
