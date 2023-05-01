@@ -1,0 +1,14 @@
+requests
+pyyaml
+playwright==1.28.0
+sqlmap
+black
+loguru
+beautifulsoup4~=4.11.2
+colorama
+rich
+prompt-toolkit
+google
+pytest
+openai
+langchain

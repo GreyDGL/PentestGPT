@@ -1,0 +1,46 @@
+version: '3'
+
+#################
+# SERVICES
+#################
+services:
+
+  # Developer environment
+  devenv:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      # Mount the root folder that contains .git
+      - ..:/workspace:cached
+    command: /bin/sh -c "while sleep 10; do :; done"
+    networks:
+      exploitflownet:
+        ipv4_address: 192.168.2.5
+    cap_add:
+      - NET_ADMIN
+      # - ALL
+
+  # Collaborative robot target
+  openssh:
+    container_name: openssh 
+    build:
+      context: ..
+      dockerfile: .devcontainer/targets/openssh/Dockerfile
+    environment: 
+      - ROOT_PASSWORD=vulhub
+    # ports:  # map port in the container to the host system
+    #   - "20022:22"    
+    networks:
+      exploitflownet:
+        ipv4_address: 192.168.2.10
+
+#################
+# NETWORKS
+#################
+networks:
+  exploitflownet:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.2.0/24
