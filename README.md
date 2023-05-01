@@ -37,11 +37,15 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
 1. Install `requirements.txt` with `pip install -r requirements.txt`
 2. (Deprecated: Will update support for non-plus member later.) ~~Install `chatgpt-wrapper` if you're non-plus members: `pip install git+https://github.com/mmabrouk/chatgpt-wrapper`. More details at: https://github.com/mmabrouk/chatgpt-wrapper. Note that the support for non-plus members are not optimized.~~
 3. Configure the cookies in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py. config/chatgpt_config.py`.
-    - Login to ChatGPT session page.
-    - In `Inspect - Network`, find the connections to the ChatGPT session page. 
-    - Find the cookie in the **request header** in the request to `https://chat.openai.com/api/auth/session` and paste it into the `cookie` field of `config/chatgpt_config.py`. (You may use Inspect->Network, find session and copy the `cookie` field in `request_headers` to `https://chat.openai.com/api/auth/session`)
-    - Note that the other fields are temporarily deprecated due to the update of ChatGPT page. 
-    - Fill in `userAgent` with your user agent.
+   - If you're using cookie:
+       - Login to ChatGPT session page.
+       - In `Inspect - Network`, find the connections to the ChatGPT session page. 
+       - Find the cookie in the **request header** in the request to `https://chat.openai.com/api/auth/session` and paste it into the `cookie` field of `config/chatgpt_config.py`. (You may use Inspect->Network, find session and copy the `cookie` field in `request_headers` to `https://chat.openai.com/api/auth/session`)
+       - Note that the other fields are temporarily deprecated due to the update of ChatGPT page. 
+       - Fill in `userAgent` with your user agent.
+   - If you're using API:
+       - Fill in the OpenAI API key in `chatgpt_config.py`.
+       - In `main.py`, change `useAPI` to `True`, and set the preferred model.
 4. To verify that the connection is configured properly, you may run `python3 test_connection.py`. You should see some sample conversation with ChatGPT.
 5. (Notice) The above verification process is not stable. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`
 
