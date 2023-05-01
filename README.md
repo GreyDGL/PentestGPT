@@ -35,8 +35,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
 
 ## Installation
 1. Install `requirements.txt` with `pip install -r requirements.txt`
-2. (Deprecated: Will update support for non-plus member later.) ~~Install `chatgpt-wrapper` if you're non-plus members: `pip install git+https://github.com/mmabrouk/chatgpt-wrapper`. More details at: https://github.com/mmabrouk/chatgpt-wrapper. Note that the support for non-plus members are not optimized.~~
-3. Configure the cookies in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py config/chatgpt_config.py`.
+2. Configure the cookies in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py config/chatgpt_config.py`.
    - If you're using cookie:
        - Login to ChatGPT session page.
        - In `Inspect - Network`, find the connections to the ChatGPT session page. 
@@ -45,14 +44,28 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
        - Fill in `userAgent` with your user agent.
    - If you're using API:
        - Fill in the OpenAI API key in `chatgpt_config.py`.
-       - In `main.py`, change `useAPI` to `True`, and set the preferred model.
-4. To verify that the connection is configured properly, you may run `python3 test_connection.py`. You should see some sample conversation with ChatGPT.
-5. (Notice) The above verification process is not stable. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`
+3. To verify that the connection is configured properly, you may run `python3 test_connection.py`. You should see some sample conversation with ChatGPT.
+   - A sample output is below
+   ```
+   1. You're connected with ChatGPT Plus cookie. 
+   To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI=False>
+   ## Test connection for OpenAI api (GPT-4)
+   2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI=True>
+   ## Test connection for OpenAI api (GPT-3.5)
+   3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI=True>
+   ```
+4. (Notice) The above verification process for cookie. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`. Please submit an issue if you encounter any problem.
 
 
 
 ## Usage
-1. To start, run `python3 main.py`. 
+1. To start, run `python3 main.py --args`.
+    - `--reasoning_model` is the reasoning model you want to use. 
+    - `--useAPI` is whether you want to use OpenAI API.
+    - You're recommended to use the combination as suggested by `test_connection.py`, which are:
+      - `python3 main.py --reasoning_model=gpt-4 --useAPI=False`
+      - `python3 main.py --reasoning_model=gpt-4 --useAPI=True`
+      - `python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI=True`
 2. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
 3. In general, PentestGPT intakes commands similar to chatGPT. There are several basic commands.
    1. The commands are: 
@@ -72,7 +85,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
         - `brainstorm`: let PentestGPT brainstorm on the local task for all the possible solutions.
         - `discuss`: discuss with PentestGPT about this local task.
         - `google`: search on Google. This function is still under development.
-        - `continue`: exit the sub task and continue the main testing session.
+        - `continue`: exit the subtask and continue the main testing session.
 ## Report
 1. After finishing the penetration testing, a report will be automatically generated in `logs` folder (if you quit with `quit` command).
 2. The report can be printed in a human-readable format by running `python3 utils/report_generator.py <log file>`. A sample report `sample_pentestGPT_log.txt` is also uploaded.
