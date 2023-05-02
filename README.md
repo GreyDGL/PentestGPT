@@ -35,7 +35,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
 
 ## Installation
 1. Install `requirements.txt` with `pip install -r requirements.txt`
-2. Configure the cookies in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py. config/chatgpt_config.py`.
+2. Configure the cookies in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py config/chatgpt_config.py`.
    - If you're using cookie:
        - Login to ChatGPT session page.
        - In `Inspect - Network`, find the connections to the ChatGPT session page. 
