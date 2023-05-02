@@ -48,11 +48,11 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
    - A sample output is below
    ```
    1. You're connected with ChatGPT Plus cookie. 
-   To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI=False>
+   To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4>
    ## Test connection for OpenAI api (GPT-4)
-   2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI=True>
+   2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI>
    ## Test connection for OpenAI api (GPT-3.5)
-   3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI=True>
+   3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI>
    ```
 4. (Notice) The above verification process for cookie. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`. Please submit an issue if you encounter any problem.
 
@@ -63,9 +63,9 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
     - `--reasoning_model` is the reasoning model you want to use. 
     - `--useAPI` is whether you want to use OpenAI API.
     - You're recommended to use the combination as suggested by `test_connection.py`, which are:
-      - `python3 main.py --reasoning_model=gpt-4 --useAPI=False`
-      - `python3 main.py --reasoning_model=gpt-4 --useAPI=True`
-      - `python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI=True`
+      - `python3 main.py --reasoning_model=gpt-4`
+      - `python3 main.py --reasoning_model=gpt-4 --useAPI`
+      - `python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI`
 2. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
 3. In general, PentestGPT intakes commands similar to chatGPT. There are several basic commands.
    1. The commands are: 
