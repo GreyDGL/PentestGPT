@@ -3,6 +3,7 @@
 import dataclasses
 import json
 import re
+import sys
 import time
 from typing import Any, Dict, List, Tuple
 from uuid import uuid1
@@ -97,11 +98,18 @@ class ChatGPT:
         self.headers["authorization"] = self.get_authorization()
 
     def get_authorization(self):
-        url = "https://chat.openai.com/api/auth/session"
-        r = requests.get(url, headers=self.headers)
-        authorization = r.json()["accessToken"]
-        # authorization = self.config.accessToken
-        return "Bearer " + authorization
+        try:
+            url = "https://chat.openai.com/api/auth/session"
+            r = requests.get(url, headers=self.headers)
+            authorization = r.json()["accessToken"]
+            # authorization = self.config.accessToken
+            return "Bearer " + authorization
+        except requests.exceptions.JSONDecodeError as e:
+            logger.error(e)
+            print("Your cookie setting is not correct. Please update it in config/chatgpt_config.py")
+            sys.exit(1)
+            return None
+
 
     def get_latest_message_id(self, conversation_id):
         # Get continuous conversation message id

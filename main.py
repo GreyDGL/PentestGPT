@@ -9,7 +9,7 @@ logger = loguru.logger
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='PentestGPT')
     parser.add_argument('--reasoning_model', type=str, default="gpt-4")
-    parser.add_argument('--useAPI', type=bool, default=True)
+    parser.add_argument('--useAPI', action="store_true", default=False)
     args = parser.parse_args()
 
     pentestGPTHandler = pentestGPT(reasoning_model=args.reasoning_model, useAPI=args.useAPI)
