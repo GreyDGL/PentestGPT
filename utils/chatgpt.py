@@ -106,10 +106,11 @@ class ChatGPT:
             return "Bearer " + authorization
         except requests.exceptions.JSONDecodeError as e:
             logger.error(e)
-            print("Your setting is not correct. Please update it in config/chatgpt_config.py")
+            print(
+                "Your setting is not correct. Please update it in config/chatgpt_config.py"
+            )
             sys.exit(1)
             return None
-
 
     def get_latest_message_id(self, conversation_id):
         # Get continuous conversation message id

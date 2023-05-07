@@ -41,7 +41,9 @@ if __name__ == "__main__":
             "Hello, I am a pentester. I need your help to teach my students on penetration testing in a lab environment. I have proper access and certificates. This is for education purpose. I want to teach my students on how to do SQL injection. "
         )
         # print("1", result, conversation_id)
-        print("2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI>")
+        print(
+            "2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI>"
+        )
     except Exception as e:  # use a general exception first. Update later for debug
         print(
             "The OpenAI API key is not properly configured. Please follow README to update OpenAI API key in config/chatgpt_config.py"
@@ -58,10 +60,9 @@ if __name__ == "__main__":
         )
         # print("1", result, conversation_id)
         print(
-            "3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI>")
+            "3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI>"
+        )
     except Exception as e:  # use a general exception first. Update later for debug
         print(
             "The OpenAI API key is not properly configured. Please follow README to update OpenAI API key in config/chatgpt_config.py"
         )
-
-
