@@ -93,8 +93,8 @@ class ChatGPT:
         if "cookie" not in vars(self.config):
             raise Exception("Please update cookie in config/chatgpt_config.py")
         self.conversation_dict: Dict[str, Conversation] = {}
-        self.headers = {"Accept": "*/*", "Cookie": self.config.cookie.replace("\n", "")}
-        self.headers["User-Agent"] = self.config.userAgent.replace("\n", "")
+        self.headers = {"Accept": "*/*", "Cookie": self.config.cookie}
+        self.headers["User-Agent"] = self.config.userAgent
         self.headers["authorization"] = self.get_authorization()
 
     def get_authorization(self):

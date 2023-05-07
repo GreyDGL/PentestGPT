@@ -8,11 +8,11 @@ class ChatGPTConfig:
     model: str = "text-davinci-002-render-sha"
 
     # set up the openai key
-    openai_key = """<your openai key>"""
+    openai_key = "<your openai key>"
     # set the user-agent below
-    userAgent: str = """<your user agent>"""
+    userAgent: str = "<your user agent>"
     # set cookie below
-    cookie: str = """<your cookie>"""
+    cookie: str = "<your cookie>"
 
     # the following three variables are deprecated
     # _puid: str = "user-nwflAg2thlSVHzpBgwGFRgqE:1682153664-6LVyqTDXqHm2QjPWNpXFzDkMFxxv%2Bj%2F0XrgE%2FhdBjeI%3D"
