@@ -3,6 +3,7 @@
 - [Update on 30/04/2023] The support to OpenAI API is available! I'll implement a input param parser for it soon. You can now freely configure the OpenAI model in `main.py` (several examples are included).
 - **We're testing PentestGPT on HackTheBox**. You may follow [this link](https://www.hackthebox.com/home/users/profile/1489431). More details will be released soon.
 - **We include a video of using PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
+- Installation guide video (for cookie setup) is available at: https://youtu.be/IbUcj0F9EBc
 
 ## Common Questions
 - **Q**: What is PentestGPT?
@@ -36,7 +37,7 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
 ## Installation
 1. Install `requirements.txt` with `pip install -r requirements.txt`
 2. Configure the cookies in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py config/chatgpt_config.py`.
-   - If you're using cookie:
+   - If you're using cookie, please watch this video: https://youtu.be/IbUcj0F9EBc. The general steps are:
        - Login to ChatGPT session page.
        - In `Inspect - Network`, find the connections to the ChatGPT session page. 
        - Find the cookie in the **request header** in the request to `https://chat.openai.com/api/auth/session` and paste it into the `cookie` field of `config/chatgpt_config.py`. (You may use Inspect->Network, find session and copy the `cookie` field in `request_headers` to `https://chat.openai.com/api/auth/session`)
