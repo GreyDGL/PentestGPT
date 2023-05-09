@@ -8,6 +8,8 @@ import openai
 import requests
 
 logger = loguru.logger
+logger.add(level="ERROR", sink="logs/chatgpt_connection_test.log")
+
 
 if __name__ == "__main__":
     chatgpt_config = ChatGPTConfig()
@@ -16,8 +18,7 @@ if __name__ == "__main__":
     try:
         chatgpt = ChatGPT(chatgpt_config)
         conversations = chatgpt.get_conversation_history()
-        # print(conversations)
-        if conversations != None:
+        if conversations is not None:
             # print(text, conversation_id)
             print(
                 "1. You're connected with ChatGPT Plus cookie. \nTo start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4>"
@@ -27,6 +28,7 @@ if __name__ == "__main__":
                 "The cookie is not properly configured with ChatGPT Cookie. Please follow README to update cookie in config/chatgpt_config.py"
             )
     except Exception as e:  # use a general exception first. Update later for debug
+        logger.error(e)
         print(
             "The cookie is not properly configured. Please follow README to update cookie in config/chatgpt_config.py"
         )
@@ -45,6 +47,7 @@ if __name__ == "__main__":
             "2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI>"
         )
     except Exception as e:  # use a general exception first. Update later for debug
+        logger.error(e)
         print(
             "The OpenAI API key is not properly configured. Please follow README to update OpenAI API key in config/chatgpt_config.py"
         )
@@ -63,6 +66,7 @@ if __name__ == "__main__":
             "3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI>"
         )
     except Exception as e:  # use a general exception first. Update later for debug
+        logger.error(e)
         print(
             "The OpenAI API key is not properly configured. Please follow README to update OpenAI API key in config/chatgpt_config.py"
         )

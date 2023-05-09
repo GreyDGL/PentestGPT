@@ -16,7 +16,7 @@ from config.chatgpt_config import ChatGPTConfig
 
 logger = loguru.logger
 logger.remove()
-logger.add(level="WARNING", sink="logs/chatgpt.log")
+logger.add(level="ERROR", sink="logs/chatgpt.log")
 
 
 # A sample ChatGPTConfig class has the following structure. All fields can be obtained from the browser's cookie.
@@ -106,17 +106,23 @@ class ChatGPT:
             return "Bearer " + authorization
         except requests.exceptions.JSONDecodeError as e:
             logger.error(e)
-            print(
-                "Your setting is not correct. Please update it in config/chatgpt_config.py"
+            logger.error(
+                "You encounter an error when communicating with ChatGPT. The most likely reason is that your cookie expired."
             )
-            sys.exit(1)
             return None
 
     def get_latest_message_id(self, conversation_id):
         # Get continuous conversation message id
-        url = f"https://chat.openai.com/backend-api/conversation/{conversation_id}"
-        r = requests.get(url, headers=self.headers, proxies=self.proxies)
-        return r.json()["current_node"]
+        try:
+            url = f"https://chat.openai.com/backend-api/conversation/{conversation_id}"
+            r = requests.get(url, headers=self.headers, proxies=self.proxies)
+            return r.json()["current_node"]
+        except requests.exceptions.JSONDecodeError as e:
+            logger.error(e)
+            logger.error(
+                "You encounter an error when communicating with ChatGPT. The most likely reason is that your cookie expired."
+            )
+            return None
 
     def _parse_message_raw_output(self, response: requests.Response):
         # parse message raw output
