@@ -1,15 +1,65 @@
-# PentestGPT
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a name="readme-top"></a>
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Discord][discord-shield]][discord-url]
+
+
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/GreyDGL/PentestGPT">
+  </a>
+
+<h3 align="center">PentestGPT</h3>
+
+  <p align="center">
+    A GPT-empowered penetration testing tool. 
+    <br />
+    <a href="https://github.com/GreyDGL/PentestGPT"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/GreyDGL/PentestGPT/blob/main/PentestGPT_design.md">Design Details</a>
+    ·
+    <a href="https://www.youtube.com/watch?v=lAjLIj1JT3c">View Demo</a>
+    ·
+    <a href="https://github.com/GreyDGL/PentestGPT/issues">Report Bug or Request Feature</a>
+    </p>
+</div>
+
+
+
+
+
+<!-- ABOUT THE PROJECT -->
+## General Updates
 
 - [Update on 30/04/2023] The support to OpenAI API is available! I'll implement a input param parser for it soon. You can now freely configure the OpenAI model in `main.py` (several examples are included).
 - **We're testing PentestGPT on HackTheBox**. You may follow [this link](https://www.hackthebox.com/home/users/profile/1489431). More details will be released soon.
 - **We include a video of using PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
 - Installation guide video (for cookie setup) is available at: https://youtu.be/IbUcj0F9EBc
 
+
+<!-- Common Questions -->
 ## Common Questions
 - **Q**: What is PentestGPT?
   - **A**: PentestGPT is a penetration testing tool empowered by ChatGPT. It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
 - **Q**: Do I need to be a ChatGPT plus member to use PentestGPT?
-  - **A**: Yes. PentestGPT relies on GPT-4 model for high-quality reasoning. Since there is no public GPT-4 API yet, a wrapper is included to use ChatGPT session to support PentestGPT.
+  - **A**: Yes. PentestGPT relies on GPT-4 model for high-quality reasoning. Since there is no public GPT-4 API yet, a wrapper is included to use ChatGPT session to support PentestGPT. You may also use GPT-4 API directly if you have access to it.
 - **Q**: Why GPT-4?
   - **A**: After empirical evaluation, we found that GPT-4 performs better than GPT-3.5 in terms of penetration testing reasoning. In fact, GPT-3.5 leads to failed test in simple tasks.
 - **Q**: Why not just use GPT-4 directly?
@@ -20,21 +70,19 @@
   - **A**: We're working on a paper to explore the tech details behind automated pentest. Meanwhile, please feel free to raise issues/discussions. I'll do my best to address all of them.
 
 
-## Introduction
+
+<!-- GETTING STARTED -->
+## Getting Started
 - **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. 
 - It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
 - **PentestGPT** is able to solve easy to medium HackTheBox machines, and other CTF challenges. You can check [this](./resources/README.md) example in `resources` where we use it to solve HackTheBox challenge **TEMPLATED** (web challenge). 
 - A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable II) is available at [here](./resources/PentestGPT_Hackable2.pdf).
 - A sample usage video is below: (or available here: [Demo](https://youtu.be/h0k6kWWaCEU))
 
-https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-becb-6658b80180ff.mov
 
-## Contribute
-- The project is still in its early stage. Feel free to raise any issues when using the tool. 
-- Please help to contribute by submitting the vulnerabilities you identified or challenges you solved with **PentestGPT**.
-- This project is for research purpose. Please contact me if you're interested in collaboration.
+### Installation
+Before installation, we recommend you to take a look at this [installation video](https://youtu.be/IbUcj0F9EBc) if you want to use cookie setup.
 
-## Installation
 1. Install `requirements.txt` with `pip install -r requirements.txt`
 2. Configure the cookies in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py config/chatgpt_config.py`.
    - If you're using cookie, please watch this video: https://youtu.be/IbUcj0F9EBc. The general steps are:
@@ -58,6 +106,11 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
 4. (Notice) The above verification process for cookie. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`. Please submit an issue if you encounter any problem.
 
 
+
+
+
+
+<!-- USAGE EXAMPLES -->
 
 ## Usage
 1. To start, run `python3 main.py --args`.
@@ -87,27 +140,79 @@ https://user-images.githubusercontent.com/78410652/232327920-7318a0c4-bee0-4cb4-
         - `discuss`: discuss with PentestGPT about this local task.
         - `google`: search on Google. This function is still under development.
         - `continue`: exit the subtask and continue the main testing session.
-## Report
+### Report and Logging
 1. After finishing the penetration testing, a report will be automatically generated in `logs` folder (if you quit with `quit` command).
 2. The report can be printed in a human-readable format by running `python3 utils/report_generator.py <log file>`. A sample report `sample_pentestGPT_log.txt` is also uploaded.
 
 
-## Design Documentation
-The current design is mainly for web penetration testing
 
-### General Design
-PentestGPT provides a unified terminal input handler, and backed by three main components:
-- A test generation module which generates the exact penetration testing commands or operations for the users to execute.
-- A test reasoning module which conducts the reasoning of the test, guiding the penetration testers on what to do next.
-- A parsing module which parses the output of the penetration tools and the contents on the webUI.
+<!-- CONTRIBUTING -->
+## Contributing
 
-### Function Design
-The handler is the main entry point of the penetration testing tool. It allows pentesters to perform the following operations:
-1. (initialize itself with some pre-designed prompts.)
-2. Start a new penetration testing session by providing the target information.
-3. Ask for todo-list, and acquire the next step to perform.
-4. After completing the operation, pass the information to PentestGPT.
-   1. Pass a tool output.
-   2. Pass a webpage content.
-   3. Pass a human description.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Gelei Deng - [![LinkedIn][linkedin-shield]][linkedin-url] - gelei.deng@ntu.edu.sg
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/GreyDGL/PentestGPT.svg?style=for-the-badge
+[contributors-url]: https://github.com/GreyDGL/PentestGPT/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/GreyDGL/PentestGPT.svg?style=for-the-badge
+[forks-url]: https://github.com/GreyDGL/PentestGPT/network/members
+[stars-shield]: https://img.shields.io/github/stars/GreyDGL/PentestGPT.svg?style=for-the-badge
+[stars-url]: https://github.com/GreyDGL/PentestGPT/stargazers
+[issues-shield]: https://img.shields.io/github/issues/GreyDGL/PentestGPT.svg?style=for-the-badge
+[issues-url]: https://github.com/GreyDGL/PentestGPT/issues
+[license-shield]: https://img.shields.io/github/license/GreyDGL/PentestGPT.svg?style=for-the-badge
+[license-url]: https://github.com/GreyDGL/PentestGPT/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/gelei-deng-225a10112/
+[discord-shield]: https://img.shields.io/discord/1105686052531867678?style=for-the-badge
+[discord-url]: https://discord.gg/pk54XuPD
+[product-screenshot]: images/screenshot.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[Svelte-url]: https://svelte.dev/
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com 
