@@ -9,6 +9,7 @@ outputs/
 logs/
 utils/logs/
 archive/
+test_history/
 
 # C extensions
 *.so

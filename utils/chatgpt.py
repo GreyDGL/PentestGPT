@@ -243,6 +243,11 @@ class ChatGPT:
         message.answer = result
         message.request_end_timestamp = end_time
         message.time_escaped = end_time - start_time
+        # add additional logic for reloading (only for PentestGPT continue from previous sessions)
+        if conversation_id not in self.conversation_dict:
+            conversation: Conversation = Conversation()
+            conversation.conversation_id = conversation_id
+            self.conversation_dict[conversation_id] = conversation
         conversation: Conversation = self.conversation_dict[conversation_id]
         conversation.message_list.append(message)
         return text
