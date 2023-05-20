@@ -47,6 +47,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## General Updates
+- [Update on 19/05/2023] A support to chatGPT cookie usage is added. Please read the installation section for more details.
 - [Update on 13/05/2023] I'll add more demo videos for PentestGPT. Below are the available ones:
     - **PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
     - **PentestGPT on [HTB-Lame](https://youtu.be/Vs9DFtAkODM)**. This is an easy machine, but it shows you how PentestGPT skipped the rabbit hole and worked on other potential vulnerabilities.
@@ -86,12 +87,14 @@ Before installation, we recommend you to take a look at this [installation video
 
 1. Install `requirements.txt` with `pip install -r requirements.txt`
 2. Configure the cookies in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py config/chatgpt_config.py`.
-   - If you're using cookie, please watch this video: https://youtu.be/IbUcj0F9EBc. The general steps are:
-       - Login to ChatGPT session page.
+   - **If you're using cookie, please go through the following details!!!** 
+       - please watch this video: https://youtu.be/IbUcj0F9EBc. 
+       - *Use Chrome* to login to ChatGPT.
        - In `Inspect - Network`, find the connections to the ChatGPT session page. 
-       - Find the cookie in the **request header** in the request to `https://chat.openai.com/api/auth/session` and paste it into the `cookie` field of `config/chatgpt_config.py`. (You may use Inspect->Network, find session and copy the `cookie` field in `request_headers` to `https://chat.openai.com/api/auth/session`)
-       - Note that the other fields are temporarily deprecated due to the update of ChatGPT page. 
+       - Find the cookie in the **request header** in the request to `https://chat.openai.com/public-api/conversation_limit` and paste it into the `cookie` field of `config/chatgpt_config.py`. (You may use Inspect->Network, find session and copy the `cookie` field in `request_headers` to `https://chat.openai.com/public-api/conversation_limit`)
        - Fill in `userAgent` with your user agent.
+       - During the usage of PentestGPT, **You may be asked to refresh the session as cookie expired**. Please copy the request to `https://chat.openai.com/public-api/conversation_limit` as **cURL** and paste it to `config/chatgpt_config_curl.txt`. Follow the instruction and the session will be updated.
+       - Note that each cookie may work for around 30 mins.
    - If you're using API:
        - Fill in the OpenAI API key in `chatgpt_config.py`.
 3. To verify that the connection is configured properly, you may run `python3 test_connection.py`. You should see some sample conversation with ChatGPT.
@@ -104,7 +107,7 @@ Before installation, we recommend you to take a look at this [installation video
    ## Test connection for OpenAI api (GPT-3.5)
    3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI>
    ```
-4. (Notice) The above verification process for cookie. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`. Please submit an issue if you encounter any problem.
+5. (Notice) The above verification process for cookie. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`. Please submit an issue if you encounter any problem.
 
 
 

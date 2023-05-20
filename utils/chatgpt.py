@@ -7,12 +7,13 @@ import sys
 import time
 from typing import Any, Dict, List, Tuple
 from uuid import uuid1
-import openai
 
+from pathlib import Path
 import loguru
 import requests
 
 from config.chatgpt_config import ChatGPTConfig
+import openai
 
 logger = loguru.logger
 logger.remove()
@@ -96,6 +97,18 @@ class ChatGPT:
         self.headers = {"Accept": "*/*", "Cookie": self.config.cookie}
         self.headers["User-Agent"] = self.config.userAgent
         self.headers["authorization"] = self.get_authorization()
+
+    def refresh(self) -> str:
+        # a workaround that refreshes the cookie from time to time with the configuration txt file.
+        with open(Path(self.config.curl_file)) as f:
+            curl_str = f.read()
+        # find the line that contain "cookie:"
+        cookie_line = re.findall(r"cookie: (.*?)\n", curl_str)[0]
+        valid_cookie = cookie_line.split(" ")[2:]
+        # join them together
+        self.headers["Cookie"] = " ".join(valid_cookie)
+        self.headers["authorization"] = self.get_authorization()
+        return self.headers["Cookie"]
 
     def get_authorization(self):
         try:
