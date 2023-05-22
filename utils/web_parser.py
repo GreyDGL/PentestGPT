@@ -71,16 +71,16 @@ def get_response(url, timeout=10) -> tuple:
 
         # Check if the response contains an HTTP error
         if response.status_code >= 400:
-            return None, "Error: HTTP " + str(response.status_code) + " error"
+            return None, f"Error: HTTP {response.status_code} error"
 
         return response, None
     except ValueError as ve:
         # Handle invalid URL format
-        return None, "Error: " + str(ve)
+        return None, f"Error: {str(ve)}"
 
     except requests.exceptions.RequestException as re:
         # Handle exceptions related to the HTTP request (e.g., connection errors, timeouts, etc.)
-        return None, "Error: " + str(re)
+        return None, f"Error: {str(re)}"
 
 
 def parse_web(url) -> str:
@@ -91,7 +91,7 @@ def parse_web(url) -> str:
 
     # Check if the response contains an HTTP error
     if response.status_code >= 400:
-        return "Error: HTTP " + str(response.status_code) + " error"
+        return f"Error: HTTP {str(response.status_code)} error"
 
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -120,11 +120,13 @@ def google_search(keyword, num_results=5) -> dict:
         result (dict): The search results. Format: {"keyword": keyword, "search_result": {url, content}}}
 
     """
-    search_result = {}
-    for url in search(keyword, tld="com", num=num_results, stop=num_results, pause=2):
-        search_result[url] = parse_web(url)
-    result = {"keyword": keyword, "search_result": search_result}
-    return result
+    search_result = {
+        url: parse_web(url)
+        for url in search(
+            keyword, tld="com", num=num_results, stop=num_results, pause=2
+        )
+    }
+    return {"keyword": keyword, "search_result": search_result}
 
 
 if __name__ == "__main__":

@@ -74,12 +74,10 @@ class ChatGPTAPI:
 
     def send_message(self, message):
         history = [{"role": "user", "content": message}]
-        response = chatgpt_completion(history)
-        return response
+        return chatgpt_completion(history)
 
     def extract_code_fragments(self, text):
-        code_fragments = re.findall(r"```(.*?)```", text, re.DOTALL)
-        return code_fragments
+        return re.findall(r"```(.*?)```", text, re.DOTALL)
 
 
 class ChatGPT:
@@ -94,14 +92,16 @@ class ChatGPT:
         if "cookie" not in vars(self.config):
             raise Exception("Please update cookie in config/chatgpt_config.py")
         self.conversation_dict: Dict[str, Conversation] = {}
-        self.headers = {"Accept": "*/*", "Cookie": self.config.cookie}
-        self.headers["User-Agent"] = self.config.userAgent
+        self.headers = {
+            "Accept": "*/*",
+            "Cookie": self.config.cookie,
+            "User-Agent": self.config.userAgent,
+        }
         self.headers["authorization"] = self.get_authorization()
 
     def refresh(self) -> str:
         # a workaround that refreshes the cookie from time to time with the configuration txt file.
-        with open(Path(self.config.curl_file)) as f:
-            curl_str = f.read()
+        curl_str = Path(Path(self.config.curl_file)).read_text()
         # find the line that contain "cookie:"
         cookie_line = re.findall(r"cookie: (.*?)\n", curl_str)[0]
         valid_cookie = cookie_line.split(" ")[2:]
@@ -116,7 +116,7 @@ class ChatGPT:
             r = requests.get(url, headers=self.headers)
             authorization = r.json()["accessToken"]
             # authorization = self.config.accessToken
-            return "Bearer " + authorization
+            return f"Bearer {authorization}"
         except requests.exceptions.JSONDecodeError as e:
             logger.error(e)
             logger.error(
@@ -147,14 +147,13 @@ class ChatGPT:
                     break
                 if "data:" in decoded_line:
                     last_line = decoded_line
-        result = json.loads(last_line[5:])
-        return result
+        return json.loads(last_line[5:])
 
     def send_new_message(self, message, model=None):
         if model is None:
             model = self.model
         # 发送新会话窗口消息，返回会话id
-        logger.info(f"send_new_message")
+        logger.info("send_new_message")
         url = "https://chat.openai.com/backend-api/conversation"
         message_id = str(uuid1())
         data = {
@@ -203,7 +202,7 @@ class ChatGPT:
 
     def send_message(self, message, conversation_id):
         # Send message to specific conversation
-        logger.info(f"send_message")
+        logger.info("send_message")
         url = "https://chat.openai.com/backend-api/conversation"
 
         # get message from id
@@ -277,10 +276,7 @@ class ChatGPT:
         )
         if r.status_code == 200:
             json_data = r.json()
-            conversations = {}
-            for item in json_data["items"]:
-                conversations[item["id"]] = item["title"]
-            return conversations
+            return {item["id"]: item["title"] for item in json_data["items"]}
         else:
             logger.error("Failed to retrieve history")
             return None
@@ -301,13 +297,11 @@ class ChatGPT:
 
         if r.status_code == 200:
             return True
-        else:
-            logger.error("Failed to delete conversation")
-            return False
+        logger.error("Failed to delete conversation")
+        return False
 
     def extract_code_fragments(self, text):
-        code_fragments = re.findall(r"```(.*?)```", text, re.DOTALL)
-        return code_fragments
+        return re.findall(r"```(.*?)```", text, re.DOTALL)
 
 
 if __name__ == "__main__":

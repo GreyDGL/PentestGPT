@@ -20,9 +20,8 @@ def prompt_continuation(width, line_number, wrap_count):
     """
     if wrap_count > 0:
         return " " * (width - 3) + "-> "
-    else:
-        text = ("- %i - " % (line_number + 1)).rjust(width)
-        return HTML("<strong>%s</strong>") % text
+    text = ("- %i - " % (line_number + 1)).rjust(width)
+    return HTML("<strong>%s</strong>") % text
 
 
 def prompt_select(title="", values=None, style=None, async_=False):
@@ -52,10 +51,7 @@ def prompt_select(title="", values=None, style=None, async_=False):
         full_screen=False,
     )
 
-    if async_:
-        return application.run_async()
-    else:
-        return application.run()
+    return application.run_async() if async_ else application.run()
 
 
 def prompt_ask(text, multiline=True) -> str:
@@ -87,7 +83,7 @@ if __name__ == "__main__":
     print("Test case below")
     print("This is a multi-line input. Press [shift + right-arrow] to accept input. ")
     answer = prompt_ask("Multiline input: ", multiline=True)
-    print("You said: %s" % answer)
+    print(f"You said: {answer}")
 
     # With HTML.
     request_option = prompt_select(
@@ -100,4 +96,4 @@ if __name__ == "__main__":
         ],
     )
 
-    print("Result = {}".format(request_option))
+    print(f"Result = {request_option}")

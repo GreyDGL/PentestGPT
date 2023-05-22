@@ -40,8 +40,8 @@ def crawl_dotCMS_description_page(
     # Save the results as a structured JSON object
     title = title.strip().replace(" ", "_").lower()
     output = {"title": title}
-    for i in range(len(parsed_subtitles)):
-        output[parsed_subtitles[i][0]] = parsed_subtitles[i][1]
+    for parsed_subtitle in parsed_subtitles:
+        output[parsed_subtitle[0]] = parsed_subtitle[1]
 
     with open(f"{output_dir}/{title}.json", "w") as f:
         json.dump(output, f)
@@ -54,10 +54,3 @@ def crawl_strapi_documentation(url, output_dir="outputs"):
 
 if __name__ == "__main__":
     output_dir = "outputs"
-
-    # example 1: crawl the description page of dotCMS container API
-    # dotCMS_url = 'https://www.dotcms.com/docs/latest/container-api'
-    # output = crawl_dotCMS_description_page(url=dotCMS_url, output_dir=output_dir)
-
-    # example 2: crawl the documentation page of
-    pass

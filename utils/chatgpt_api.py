@@ -91,9 +91,12 @@ class ChatGPTAPI:
         data = message
         conversation = self.conversation_dict[conversation_id]
         for message in conversation.message_list[-self.history_length :]:
-            chat_message.append({"role": "user", "content": message.ask})
-            chat_message.append({"role": "assistant", "content": message.answer})
-
+            chat_message.extend(
+                (
+                    {"role": "user", "content": message.ask},
+                    {"role": "assistant", "content": message.answer},
+                )
+            )
         # append the new message to the history
         chat_message.append({"role": "user", "content": data})
         # print(chat_message)
@@ -116,8 +119,7 @@ class ChatGPTAPI:
         return response
 
     def extract_code_fragments(self, text):
-        code_fragments = re.findall(r"```(.*?)```", text, re.DOTALL)
-        return code_fragments
+        return re.findall(r"```(.*?)```", text, re.DOTALL)
 
     def get_conversation_history(self):
         # TODO
