@@ -9,12 +9,13 @@ def main(file_name):
         logs = json.load(f)
     user_inputs = logs["user"]
     bot_responses = logs["pentestGPT"]
-    # merge the two list into one. Sort based on the first element (timestamp in str), and add a flag to show source
-    merged_list = []
-    for user_input in user_inputs:
-        merged_list.append([user_input[0], user_input[1], "user"])
-    for bot_response in bot_responses:
-        merged_list.append([bot_response[0], bot_response[1], "pentestGPT"])
+    merged_list = [
+        [user_input[0], user_input[1], "user"] for user_input in user_inputs
+    ]
+    merged_list.extend(
+        [bot_response[0], bot_response[1], "pentestGPT"]
+        for bot_response in bot_responses
+    )
     merged_list.sort(key=lambda x: x[0])
 
     # now print the conversation
