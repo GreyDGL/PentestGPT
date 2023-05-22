@@ -54,8 +54,7 @@ class ChatGPTBrowser:
         return
 
     def extract_code_fragments(self, text):
-        code_fragments = re.findall(r"```(.*?)```", text, re.DOTALL)
-        return code_fragments
+        return re.findall(r"```(.*?)```", text, re.DOTALL)
 
     def delete_conversation(self, conversation_id=None):
         # delete conversation with its uuid
