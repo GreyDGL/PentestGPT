@@ -17,7 +17,9 @@ class ChatGPTConfig:
     error_wait_time: float = 20
     is_debugging: bool = False
     curl_file: str = "config/chatgpt_config_curl.txt"
-    proxies: dict = dataclasses.field(default_factory=lambda: {
-        "http": "",
-        "https": "",
-    })
+    proxies: dict = dataclasses.field(
+        default_factory=lambda: {
+            "http": "",
+            "https": "",
+        }
+    )
