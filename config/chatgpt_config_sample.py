@@ -13,6 +13,8 @@ class ChatGPTConfig:
     userAgent: str = "<your user agent>"
     # set cookie below
     cookie: str = "<your cookie>"
+    # set authorization, like "Bearer xxxxxx"
+    authorization: str = None
 
     error_wait_time: float = 20
     is_debugging: bool = False
