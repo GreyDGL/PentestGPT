@@ -201,7 +201,7 @@ Gelei Deng - [![LinkedIn][linkedin-shield]][linkedin-url] - gelei.deng@ntu.edu.s
 [license-url]: https://github.com/GreyDGL/PentestGPT/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/gelei-deng-225a10112/
-[discord-shield]: https://img.shields.io/discord/1105686052531867678?style=for-the-badge
+[discord-shield]: https://dcbadge.vercel.app/api/server/eC34CEfEkK
 [discord-url]: https://discord.gg/eC34CEfEkK
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
