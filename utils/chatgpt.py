@@ -71,6 +71,7 @@ class ChatGPTAPI:
     def __init__(self, config: ChatGPTConfig):
         self.config = config
         openai.api_key = chatgpt_config.openai_key
+        openai.proxy = config.proxies
 
     def send_message(self, message):
         history = [{"role": "user", "content": message}]
@@ -84,7 +85,7 @@ class ChatGPT:
     def __init__(self, config: ChatGPTConfig):
         self.config = config
         self.model = config.model
-        self.proxies = {"https": ""}
+        self.proxies = config.proxies
         # self._puid = config._puid
         # self.cf_clearance = config.cf_clearance
         # self.session_token = config.session_token
@@ -113,7 +114,7 @@ class ChatGPT:
     def get_authorization(self):
         try:
             url = "https://chat.openai.com/api/auth/session"
-            r = requests.get(url, headers=self.headers)
+            r = requests.get(url, headers=self.headers, proxies=self.proxies)
             authorization = r.json()["accessToken"]
             # authorization = self.config.accessToken
             return f"Bearer {authorization}"
