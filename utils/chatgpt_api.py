@@ -45,6 +45,7 @@ class ChatGPTAPI:
     def __init__(self, config: ChatGPTConfig):
         self.config = config
         openai.api_key = config.openai_key
+        openai.proxy = config.proxies
         self.history_length = 3  # maintain 3 messages in the history. (3 chat memory)
         self.conversation_dict: Dict[str, Conversation] = {}
 
