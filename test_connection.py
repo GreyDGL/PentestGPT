@@ -6,6 +6,7 @@ from utils.chatgpt_api import ChatGPTAPI
 from config.chatgpt_config import ChatGPTConfig
 import openai
 import requests
+from rich.console import Console
 
 logger = loguru.logger
 logger.add(level="ERROR", sink="logs/chatgpt_connection_test.log")
@@ -13,19 +14,22 @@ logger.add(level="ERROR", sink="logs/chatgpt_connection_test.log")
 
 if __name__ == "__main__":
     chatgpt_config = ChatGPTConfig()
+    console = Console()
+
     # 1. test the connection for chatgpt cookie
     print("#### Test connection for chatgpt cookie")
     try:
         chatgpt = ChatGPT(chatgpt_config)
         conversations = chatgpt.get_conversation_history()
         if conversations is not None:
-            # print(text, conversation_id)
-            print(
-                "1. You're connected with ChatGPT Plus cookie. \nTo start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4>"
+            console.print(
+                "1. You're connected with ChatGPT Plus cookie. \nTo start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4>",
+                style="bold green",
             )
         else:
-            print(
-                "The cookie is not properly configured with ChatGPT Cookie. Please follow README to update cookie in config/chatgpt_config.py"
+            console.print(
+                "The cookie is not properly configured with ChatGPT Cookie. Please follow README to update cookie in config/chatgpt_config.py",
+                style="bold red",
             )
     except Exception as e:  # use a general exception first. Update later for debug
         logger.error(e)
