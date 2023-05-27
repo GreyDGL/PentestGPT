@@ -4,7 +4,6 @@ version: '3'
 # SERVICES
 #################
 services:
-
   # Developer environment
   devenv:
     build:
@@ -47,6 +46,20 @@ services:
       pentestgpt:
         ipv4_address: 192.168.2.11
     mac_address: 08:00:27:85:55:86
+
+
+  # Vulnhub vulnerable machine (Bob)
+  bob:
+    container_name: bob
+    image: vmayoral/vulnhub:bob
+    command: |
+      /bin/bash -c "rm -r /var/lock; mkdir -p /var/lock; chmod 755 /var/lock; /etc/init.d/apache2 start; /etc/init.d/ssh start; while sleep 10; do :; done"
+    ports:  # map port in the container to the host system
+      - "8080:80"
+    networks:
+      pentestgpt:
+        ipv4_address: 192.168.2.12
+    mac_address: 08:00:27:cb:07:d4
 
 
 #################
