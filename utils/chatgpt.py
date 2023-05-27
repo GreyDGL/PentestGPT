@@ -288,10 +288,10 @@ class ChatGPT:
         else:
             logger.error("Failed to retrieve history")
             return None
-    
+
     def get_cached_conversation(self, conversation_id: str) -> Conversation:
         return self.conversation_dict.get(conversation_id)
-    
+
     def gen_conversation_title(self, conversation_id: str, rsp_message_id: str):
         # gen conversation title
         if not conversation_id:
