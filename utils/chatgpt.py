@@ -47,6 +47,7 @@ class Message:
 
 @dataclasses.dataclass
 class Conversation:
+    title: str = None
     conversation_id: str = None
     message_list: List[Message] = dataclasses.field(default_factory=list)
 
@@ -150,7 +151,7 @@ class ChatGPT:
                     last_line = decoded_line
         return json.loads(last_line[5:])
 
-    def send_new_message(self, message, model=None):
+    def send_new_message(self, message, model=None, gen_title=False):
         if model is None:
             model = self.model
         # 发送新会话窗口消息，返回会话id
@@ -186,6 +187,7 @@ class ChatGPT:
         # parsing result
         result = self._parse_message_raw_output(r)
         text = "\n".join(result["message"]["content"]["parts"])
+        rsp_message_id = result["message"]["id"]
         conversation_id = result["conversation_id"]
         answer_id = result["message"]["id"]
 
@@ -198,7 +200,12 @@ class ChatGPT:
         conversation.conversation_id = conversation_id
         conversation.message_list.append(message)
 
+        if gen_title:
+            title = self.gen_conversation_title(conversation_id, rsp_message_id)
+            conversation.title = title
+
         self.conversation_dict[conversation_id] = conversation
+
         return text, conversation_id
 
     def send_message(self, message, conversation_id):
@@ -281,6 +288,27 @@ class ChatGPT:
         else:
             logger.error("Failed to retrieve history")
             return None
+    
+    def get_cached_conversation(self, conversation_id: str) -> Conversation:
+        return self.conversation_dict.get(conversation_id)
+    
+    def gen_conversation_title(self, conversation_id: str, rsp_message_id: str):
+        # gen conversation title
+        if not conversation_id:
+            return
+        url = f"https://chat.openai.com/backend-api/conversation/gen_title/{conversation_id}"
+        data = {
+            "message_id": rsp_message_id,
+        }
+        r = requests.post(url, headers=self.headers, json=data, proxies=self.proxies)
+
+        if r.status_code != 200:
+            return None
+
+        title = r.json()["title"]
+
+        logger.info(f"update conversation {conversation_id} title to {title}")
+        return title
 
     def delete_conversation(self, conversation_id=None):
         # delete conversation with its uuid
