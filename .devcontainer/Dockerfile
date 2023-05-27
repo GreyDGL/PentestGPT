@@ -7,12 +7,12 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         curl gnupg nmap bandit locales \
         cloc sloccount less iputils-ping \
         software-properties-common netdiscover \
-        dirb ftp host vim netcat ssh
+        dirb ftp host vim netcat ssh nikto
 
-# # Install Metasploit
-# RUN curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > /tmp/msfinstall \
-#     && chmod 755 /tmp/msfinstall \
-#     && /tmp/msfinstall
+# Install Metasploit
+RUN curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > /tmp/msfinstall \
+    && chmod 755 /tmp/msfinstall \
+    && /tmp/msfinstall
 
 # # [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
 # #  alternatively, this also helps avoid having to pull requirements from the internet every single time
