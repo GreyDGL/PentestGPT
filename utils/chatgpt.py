@@ -99,10 +99,7 @@ class ChatGPT:
             "Cookie": self.config.cookie,
             "User-Agent": self.config.userAgent,
         }
-        if config.authorization:
-            self.headers["authorization"] = config.authorization
-        else:
-            self.headers["authorization"] = self.get_authorization()
+        self.headers["authorization"] = self.get_authorization()
 
     def refresh(self) -> str:
         # a workaround that refreshes the cookie from time to time with the configuration txt file.
