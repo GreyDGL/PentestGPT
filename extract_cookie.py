@@ -3,7 +3,7 @@ from pycookiecheat import chrome_cookies
 import requests
 import pprint
 
-url = 'https://chat.openai.com/public-api/conversation_limit'
+url = "https://chat.openai.com/public-api/conversation_limit"
 
 # Determine the operating system
 os_name = platform.system()
