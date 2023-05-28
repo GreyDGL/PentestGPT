@@ -1,13 +1,14 @@
 FROM ubuntu:22.04
 
-# [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
         net-tools python3 python3-pip \
         curl gnupg nmap bandit locales \
         cloc sloccount less iputils-ping \
         software-properties-common netdiscover \
-        dirb ftp host vim netcat ssh nikto
+        dirb ftp host vim netcat ssh nikto whois \
+        gobuster wget
+
 
 # Install Metasploit
 RUN curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > /tmp/msfinstall \
