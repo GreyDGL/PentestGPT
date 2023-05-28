@@ -46,7 +46,7 @@ class ChatGPTAPI:
         self.config = config
         openai.api_key = config.openai_key
         openai.proxy = config.proxies
-        self.history_length = 5  # maintain 5 messages in the history. (3 chat memory)
+        self.history_length = 5  # maintain 5 messages in the history. (5 chat memory)
         self.conversation_dict: Dict[str, Conversation] = {}
 
     def count_token(self, messages) -> int:
