@@ -1,13 +1,12 @@
 import dataclasses
-import json
 import re
 import time
 from typing import Any, Dict, List, Tuple
 from uuid import uuid1
 from config.chatgpt_config import ChatGPTConfig
+import inspect
 
 import loguru
-import requests
 import openai, tiktoken
 
 
@@ -143,7 +142,7 @@ class ChatGPTAPI:
         self.conversation_dict[conversation_id] = conversation
         return response, conversation_id
 
-    def send_message(self, message, conversation_id):
+    def send_message(self, message, conversation_id, debug_mode=True):
         # create message history based on the conversation id
         chat_message = [
             {"role": "system", "content": "You are a helpful assistant."},
@@ -175,9 +174,14 @@ class ChatGPTAPI:
         )
         conversation.message_list.append(message)
         self.conversation_dict[conversation_id] = conversation
-        # add a token print
+        # count the token cost
         num_tokens = self.count_token(chat_message)
-        print(f"Number of tokens: {num_tokens}")
+        # in debug mode, print the conversation and the caller class.
+        if debug_mode:
+            print("Caller: ", inspect.stack()[1][3], "\n")
+            print("Message:", message, "\n")
+            print("Response:", response, "\n")
+            print("Token cost of the conversation: ", num_tokens, "\n")
         return response
 
     def extract_code_fragments(self, text):
