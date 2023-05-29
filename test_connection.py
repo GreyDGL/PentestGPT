@@ -5,6 +5,7 @@ from utils.chatgpt import ChatGPT
 from utils.chatgpt_api import ChatGPTAPI
 from config.chatgpt_config import ChatGPTConfig
 import openai
+
 from rich.console import Console
 
 logger = loguru.logger
