@@ -12,3 +12,4 @@ google
 pytest
 openai
 langchain
+tiktoken

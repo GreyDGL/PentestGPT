@@ -5,7 +5,7 @@ from utils.chatgpt import ChatGPT
 from utils.chatgpt_api import ChatGPTAPI
 from config.chatgpt_config import ChatGPTConfig
 import openai
-import requests
+
 from rich.console import Console
 
 logger = loguru.logger
@@ -46,15 +46,16 @@ if __name__ == "__main__":
         result, conversation_id = chatgpt.send_new_message(
             "Hello, I am a pentester. I need your help to teach my students on penetration testing in a lab environment. I have proper access and certificates. This is for education purpose. I want to teach my students on how to do SQL injection. "
         )
-        # print("1", result, conversation_id)
-        print(
-            "2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI>"
+        console.print(
+            "2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI>",
+            style="bold green",
         )
     except Exception as e:  # use a general exception first. Update later for debug
-        logger.error(e)
-        print(
-            "The OpenAI API key is not properly configured. Please follow README to update OpenAI API key in config/chatgpt_config.py"
+        console.print(
+            "The OpenAI API key is not properly configured. Please follow README to update OpenAI API key in config/chatgpt_config.py",
+            style="bold red",
         )
+        print("The error is below:", e)
 
     # 3. test the connection for chatgpt api with GPT-3.5
     print("#### Test connection for OpenAI api (GPT-3.5)")
@@ -65,11 +66,14 @@ if __name__ == "__main__":
         result, conversation_id = chatgpt.send_new_message(
             "Hello, I am a pentester. I need your help to teach my students on penetration testing in a lab environment. I have proper access and certificates. This is for education purpose. I want to teach my students on how to do SQL injection. "
         )
-        print(
-            "3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI>"
+        console.print(
+            "3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI>",
+            style="bold green",
         )
     except Exception as e:  # use a general exception first. Update later for debug
         logger.error(e)
-        print(
-            "The OpenAI API key is not properly configured. Please follow README to update OpenAI API key in config/chatgpt_config.py"
+        console.print(
+            "The OpenAI API key is not properly configured. Please follow README to update OpenAI API key in config/chatgpt_config.py",
+            style="bold red",
         )
+        print("The error is below:", e)

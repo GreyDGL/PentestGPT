@@ -1,14 +1,13 @@
 import dataclasses
-import json
 import re
 import time
 from typing import Any, Dict, List, Tuple
 from uuid import uuid1
 from config.chatgpt_config import ChatGPTConfig
+import inspect
 
 import loguru
-import requests
-import openai
+import openai, tiktoken
 
 
 logger = loguru.logger
@@ -46,17 +45,76 @@ class ChatGPTAPI:
         self.config = config
         openai.api_key = config.openai_key
         openai.proxy = config.proxies
-        self.history_length = 3  # maintain 3 messages in the history. (3 chat memory)
+        self.history_length = 5  # maintain 5 messages in the history. (5 chat memory)
         self.conversation_dict: Dict[str, Conversation] = {}
 
-    def chatgpt_completion(self, history: List, model="gpt-3.5-turbo") -> str:
+    def count_token(self, messages) -> int:
+        """
+        Count the number of tokens in the messages
+        Parameters
+        ----------
+            messages: a list of messages
+        Returns
+        -------
+            num_tokens: int
+        """
+        # count the token. Use model gpt-3.5-turbo-0301, which is slightly different from gpt-4
+        # https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb
+        model = "gpt-3.5-turbo-0301"
+        tokens_per_message = (
+            4  # every message follows <|start|>{role/name}\n{content}<|end|>\n
+        )
+        tokens_per_name = -1  # if there's a name, the role is omitted
+        encoding = tiktoken.encoding_for_model(model)
+        num_tokens = 0
+        for message in messages:
+            num_tokens += tokens_per_message
+            for key, value in message.items():
+                num_tokens += len(encoding.encode(value))
+                if key == "name":
+                    num_tokens += tokens_per_name
+        num_tokens += 3  # every reply is primed with <|start|>assistant<|message|>
+        return num_tokens
+
+    def chatgpt_completion(
+        self, history: List, model="gpt-3.5-turbo", temperature=0.5
+    ) -> str:
         if self.config.model == "gpt-4":
             model = "gpt-4"
             # otherwise, just use the default model (because it is cheaper lol)
-        response = openai.ChatCompletion.create(
-            model=model,
-            messages=history,
-        )
+        try:
+            response = openai.ChatCompletion.create(
+                model=model,
+                messages=history,
+                temperature=temperature,
+            )
+        except openai.error.APIConnectionError as e:  # give one more try
+            logger.warning(
+                "API Connection Error. Waiting for {} seconds".format(
+                    self.config.error_wait_time
+                )
+            )
+            logger.log("Connection Error: ", e)
+            time.sleep(self.config.error_wait_time)
+            response = openai.ChatCompletion.create(
+                model=model,
+                messages=history,
+                temperature=temperature,
+            )
+        except openai.error.RateLimitError as e:  # give one more try
+            logger.warning(
+                "Rate limit reached. Waiting for {} seconds".format(
+                    self.config.error_wait_time
+                )
+            )
+            logger.log("Connection Rate Limit Error: ", e)
+            time.sleep(self.config.error_wait_time)
+            response = openai.ChatCompletion.create(
+                model=model,
+                messages=history,
+                temperature=temperature,
+            )
+
         return response["choices"][0]["message"]["content"]
 
     def send_new_message(self, message):
@@ -84,7 +142,7 @@ class ChatGPTAPI:
         self.conversation_dict[conversation_id] = conversation
         return response, conversation_id
 
-    def send_message(self, message, conversation_id):
+    def send_message(self, message, conversation_id, debug_mode=True):
         # create message history based on the conversation id
         chat_message = [
             {"role": "system", "content": "You are a helpful assistant."},
@@ -116,7 +174,14 @@ class ChatGPTAPI:
         )
         conversation.message_list.append(message)
         self.conversation_dict[conversation_id] = conversation
-
+        # count the token cost
+        num_tokens = self.count_token(chat_message)
+        # in debug mode, print the conversation and the caller class.
+        if debug_mode:
+            print("Caller: ", inspect.stack()[1][3], "\n")
+            print("Message:", message, "\n")
+            print("Response:", response, "\n")
+            print("Token cost of the conversation: ", num_tokens, "\n")
         return response
 
     def extract_code_fragments(self, text):
