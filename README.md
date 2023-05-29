@@ -14,7 +14,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 [![Discord][discord-shield]][discord-url]
 
 
@@ -30,7 +29,8 @@
   <p align="center">
     A GPT-empowered penetration testing tool. 
     <br />
-    <a href="https://github.com/GreyDGL/PentestGPT"><strong>Explore the docs »</strong></a>
+    <!-- <a href="https://github.com/GreyDGL/PentestGPT"><strong>Explore the docs »</strong></a> -->
+    <a href="https://github.com/vmayoral/PentestGPT#installation"><strong>Install »</strong></a>
     <br />
     <br />
     <a href="https://github.com/GreyDGL/PentestGPT/blob/main/PentestGPT_design.md">Design Details</a>
@@ -83,6 +83,32 @@
 
 
 ### Installation
+#### With ChatGPT
+```bash
+# 0. Get the latest version
+pip3 install git+https://github.com/GreyDGL/PentestGPT
+
+# 1. Fetch cookie
+pentestgpt-cookie
+Run the following command to set the cookie:
+
+export CHATGPT_COOKIE='<big-string-you-shall-get-from-the-previous-command>'
+
+# 2. Copy the previous command and run it in your terminal
+#  NOTE: do copy the content in your CLI, not the one in this README.md.
+#  should be something like this:
+#
+# export CHATGPT_COOKIE='<big-string-you-shall-get-from-the-previous-command>'
+
+# 3. Test the connection
+pentestgpt-connection
+
+# 4. Run the tool
+pentestgpt
+```
+
+<details><summary>Old installation instructions</summary>
+
 Before installation, we recommend you to take a look at this [installation video](https://youtu.be/IbUcj0F9EBc) if you want to use cookie setup.
 
 1. Install `requirements.txt` with `pip install -r requirements.txt`
@@ -109,7 +135,7 @@ Before installation, we recommend you to take a look at this [installation video
    ```
 5. (Notice) The above verification process for cookie. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`. Please submit an issue if you encounter any problem.
 
-
+</details>
 
 
 
@@ -178,7 +204,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Gelei Deng - [![LinkedIn][linkedin-shield]][linkedin-url] - gelei.deng@ntu.edu.sg
+- Gelei Deng - [![LinkedIn][linkedin-shield]][linkedin-url] - gelei.deng@ntu.edu.sg
+- Víctor Mayoral Vilches - [![LinkedIn][linkedin-shield]][linkedin-url2] - v.mayoralv@gmail.com
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -201,6 +228,7 @@ Gelei Deng - [![LinkedIn][linkedin-shield]][linkedin-url] - gelei.deng@ntu.edu.s
 [license-url]: https://github.com/GreyDGL/PentestGPT/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/gelei-deng-225a10112/
+[linkedin-url2]: https://www.linkedin.com/in/vmayoral/
 [discord-shield]: https://dcbadge.vercel.app/api/server/eC34CEfEkK
 [discord-url]: https://discord.gg/eC34CEfEkK
 [product-screenshot]: images/screenshot.png

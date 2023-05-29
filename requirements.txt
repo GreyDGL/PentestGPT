@@ -13,3 +13,4 @@ pytest
 openai
 langchain
 tiktoken
+pycookiecheat
