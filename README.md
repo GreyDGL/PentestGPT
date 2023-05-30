@@ -78,6 +78,7 @@
 
 ### Installation
 **PentestGPT** current supports backend of **ChatGPT** and **OpenAI API**. You may use either of them. We're working on supports to custom local LLM models.
+You're recommended to use the OpenAI API for stability and performance (details in item 3). 
 1. Install the latest version with `pip3 install git+https://github.com/GreyDGL/PentestGPT`
 2. If you decide to use **ChatGPT** as the backend
    - Obtain the cookie to access the ChatGPT session 
@@ -91,7 +92,7 @@
 3. To use OpenAI API 
    - export your API key with `export OPENAI_KEY='<your key here>'`
    - Test the connection with `pentestgpt-connection`
-4. To verify that the connection is configured properly, you may run `pentestgpt-connection`. You should see some sample conversation with ChatGPT.
+4. To verify that the connection is configured properly, you may run `pentestgpt-connection`. After a while, you should see some sample conversation with ChatGPT.
    - A sample output is below
    ```
    1. You're connected with ChatGPT Plus cookie. 
