@@ -1,7 +1,7 @@
 import unittest
 from http.cookies import SimpleCookie
-from config.chatgpt_config import ChatGPTConfig
-from utils.chatgpt import ChatGPT
+from pentestgpt.config.chatgpt_config import ChatGPTConfig
+from pentestgpt.utils.chatgpt import ChatGPT
 
 
 class TestLogin(unittest.TestCase):
