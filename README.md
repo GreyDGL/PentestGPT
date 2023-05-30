@@ -29,8 +29,7 @@
   <p align="center">
     A GPT-empowered penetration testing tool. 
     <br />
-    <!-- <a href="https://github.com/GreyDGL/PentestGPT"><strong>Explore the docs »</strong></a> -->
-    <a href="https://github.com/vmayoral/PentestGPT#installation"><strong>Install »</strong></a>
+    <a href="https://github.com/GreyDGL/PentestGPT"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/GreyDGL/PentestGPT/blob/main/PentestGPT_design.md">Design Details</a>
@@ -47,32 +46,27 @@
 
 <!-- ABOUT THE PROJECT -->
 ## General Updates
-- [Update on 19/05/2023] A support to chatGPT cookie usage is added. Please read the installation section for more details.
-- [Update on 13/05/2023] I'll add more demo videos for PentestGPT. Below are the available ones:
-    - **PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
-    - **PentestGPT on [HTB-Lame](https://youtu.be/Vs9DFtAkODM)**. This is an easy machine, but it shows you how PentestGPT skipped the rabbit hole and worked on other potential vulnerabilities.
-- [Update on 30/04/2023] The support to OpenAI API is available! I'll implement a input param parser for it soon. You can now freely configure the OpenAI model in `main.py` (several examples are included).
+- [Update on 30/05/2023] A major update that allows the installation of PentestGPT with `pip`.
+- Available videos:
+  - **PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
+  - **PentestGPT on [HTB-Lame](https://youtu.be/Vs9DFtAkODM)**. This is an easy machine, but it shows you how PentestGPT skipped the rabbit hole and worked on other potential vulnerabilities.
 - **We're testing PentestGPT on HackTheBox**. You may follow [this link](https://www.hackthebox.com/home/users/profile/1489431). More details will be released soon.
-- Installation guide video (for cookie setup) is available at: https://youtu.be/IbUcj0F9EBc
-
+- Feel free to join the [Discord Channel](https://discord.gg/eC34CEfEkK) for more updates and share your ideas!
 
 <!-- Common Questions -->
 ## Common Questions
 - **Q**: What is PentestGPT?
   - **A**: PentestGPT is a penetration testing tool empowered by ChatGPT. It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
 - **Q**: Do I need to be a ChatGPT plus member to use PentestGPT?
-  - **A**: Yes. PentestGPT relies on GPT-4 model for high-quality reasoning. Since there is no public GPT-4 API yet, a wrapper is included to use ChatGPT session to support PentestGPT. You may also use GPT-4 API directly if you have access to it.
+  - **A**: You're recommended to use ChatGPT plus or GPT-4 API. PentestGPT relies on GPT-4 model for high-quality reasoning. Since there is no public GPT-4 API yet, a wrapper is included to use ChatGPT session to support PentestGPT. You may also use GPT-4 API directly if you have access to it.
 - **Q**: Why GPT-4?
   - **A**: After empirical evaluation, we found that GPT-4 performs better than GPT-3.5 in terms of penetration testing reasoning. In fact, GPT-3.5 leads to failed test in simple tasks.
 - **Q**: Why not just use GPT-4 directly?
   - **A**: We found that GPT-4 suffers from losses of context as test goes deeper. It is essential to maintain a "test status awareness" in this process. You may check the PentestGPT design [here](./PentestGPT_design.md) for more details.
 - **Q**: What about AutoGPT?
   - **A**: AutoGPT is not designed for pentest. It may perform malicious operations. Due to this consideration, we design PentestGPT in an interactive mode. Of course, our end goal is an automated pentest solution.
-- **Q**: Future plan?
-  - **A**: We're working on a paper to explore the tech details behind automated pentest. Meanwhile, please feel free to raise issues/discussions. I'll do my best to address all of them.
 
-
-
+    
 <!-- GETTING STARTED -->
 ## Getting Started
 - **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. 
@@ -83,73 +77,42 @@
 
 
 ### Installation
-#### With ChatGPT
-```bash
-# 0. Get the latest version
-pip3 install git+https://github.com/GreyDGL/PentestGPT
-
-# 1. Fetch cookie
-pentestgpt-cookie
-Run the following command to set the cookie:
-
-export CHATGPT_COOKIE='<big-string-you-shall-get-from-the-previous-command>'
-
-# 2. Copy the previous command and run it in your terminal
-#  NOTE: do copy the content in your CLI, not the one in this README.md.
-#  should be something like this:
-#
-# export CHATGPT_COOKIE='<big-string-you-shall-get-from-the-previous-command>'
-
-# 3. Test the connection
-pentestgpt-connection
-
-# 4. Run the tool
-pentestgpt
-```
-
-<details><summary>Old installation instructions</summary>
-
-Before installation, we recommend you to take a look at this [installation video](https://youtu.be/IbUcj0F9EBc) if you want to use cookie setup.
-
-1. Install `requirements.txt` with `pip install -r requirements.txt`
-2. Configure the cookies in `config`. You may follow a sample by `cp config/chatgpt_config_sample.py config/chatgpt_config.py`.
-   - **If you're using cookie, please go through the following details!!!** 
-       - please watch this video: https://youtu.be/IbUcj0F9EBc. 
-       - *Use Chrome* to login to ChatGPT.
-       - In `Inspect - Network`, find the connections to the ChatGPT session page. 
-       - Find the cookie in the **request header** in the request to `https://chat.openai.com/public-api/conversation_limit` and paste it into the `cookie` field of `config/chatgpt_config.py`. (You may use Inspect->Network, find session and copy the `cookie` field in `request_headers` to `https://chat.openai.com/public-api/conversation_limit`)
-       - Fill in `userAgent` with your user agent.
-       - During the usage of PentestGPT, **You may be asked to refresh the session as cookie expired**. Please copy the request to `https://chat.openai.com/public-api/conversation_limit` as **cURL** and paste it to `config/chatgpt_config_curl.txt`. Follow the instruction and the session will be updated.
-       - Note that each cookie may work for around 30 mins.
-   - If you're using API:
-       - Fill in the OpenAI API key in `chatgpt_config.py`.
-3. To verify that the connection is configured properly, you may run `python3 test_connection.py`. You should see some sample conversation with ChatGPT.
+**PentestGPT** current supports backend of **ChatGPT** and **OpenAI API**. You may use either of them. We're working on supports to custom local LLM models.
+1. Install the latest version with `pip3 install git+https://github.com/GreyDGL/PentestGPT`
+2. If you decide to use **ChatGPT** as the backend
+   - Obtain the cookie to access the ChatGPT session 
+   ```
+   $ pentestgpt-cookie
+   export CHATGPT_COOKIE='<your cookie here>`
+   ```
+   - Copy the previous command and run it in your terminal (`export CHATGPT_COOKIE='<big-string-you-shall-get-from-the-previous-command>'`)
+   - Test the connection with `pentestgpt-connection`
+   - Run the tool with `pentestgpt`
+3. To use OpenAI API 
+   - export your API key with `export OPENAI_KEY='<your key here>'`
+   - Test the connection with `pentestgpt-connection`
+4. To verify that the connection is configured properly, you may run `pentestgpt-connection`. You should see some sample conversation with ChatGPT.
    - A sample output is below
    ```
    1. You're connected with ChatGPT Plus cookie. 
-   To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4>
+   To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-4>
    ## Test connection for OpenAI api (GPT-4)
-   2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-4 --useAPI>
+   2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-4 --useAPI>
    ## Test connection for OpenAI api (GPT-3.5)
-   3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI>
+   3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-3.5-turbo --useAPI>
    ```
-5. (Notice) The above verification process for cookie. If you encounter errors after several trials, please try to refresh the page, repeat the above steps, and try again. You may also try with the cookie to `https://chat.openai.com/backend-api/conversations`. Please submit an issue if you encounter any problem.
-
-</details>
-
-
-
+5. The ChatGPT cookie solution can be very unstable. We're constantly working on a better solution. If you have any idea or encounter any issues, please feel free to contact us.
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
-1. To start, run `python3 main.py --args`.
+1. To start, run `pentestgpt --args`.
     - `--reasoning_model` is the reasoning model you want to use. 
     - `--useAPI` is whether you want to use OpenAI API.
     - You're recommended to use the combination as suggested by `test_connection.py`, which are:
-      - `python3 main.py --reasoning_model=gpt-4`
-      - `python3 main.py --reasoning_model=gpt-4 --useAPI`
-      - `python3 main.py --reasoning_model=gpt-3.5-turbo --useAPI`
+      - `pentestgpt --reasoning_model=gpt-4`
+      - `pentestgpt --reasoning_model=gpt-4 --useAPI`
+      - `pentestgpt --reasoning_model=gpt-3.5-turbo --useAPI`
 2. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
 3. In general, PentestGPT intakes commands similar to chatGPT. There are several basic commands.
    1. The commands are: 
@@ -176,22 +139,6 @@ Before installation, we recommend you to take a look at this [installation video
 
 
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-
 
 <!-- LICENSE -->
 ## License
@@ -202,10 +149,13 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- CONTACT -->
-## Contact
+## Contact the Contributors!
 
 - Gelei Deng - [![LinkedIn][linkedin-shield]][linkedin-url] - gelei.deng@ntu.edu.sg
 - Víctor Mayoral Vilches - [![LinkedIn][linkedin-shield]][linkedin-url2] - v.mayoralv@gmail.com
+- Yi Liu - yi009@e.ntu.edu.sg
+- Peng Liu - liu_peng@i2r.a-star.edu.sg
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
