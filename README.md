@@ -48,6 +48,7 @@
 ## General Updates
 - [Update on 30/05/2023] A major update that allows the installation of PentestGPT with `pip`.
 - Available videos:
+  - The latest installation video is [here](https://youtu.be/tGC5z14dE24).
   - **PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
   - **PentestGPT on [HTB-Lame](https://youtu.be/Vs9DFtAkODM)**. This is an easy machine, but it shows you how PentestGPT skipped the rabbit hole and worked on other potential vulnerabilities.
 - **We're testing PentestGPT on HackTheBox**. You may follow [this link](https://www.hackthebox.com/home/users/profile/1489431). More details will be released soon.
@@ -79,6 +80,7 @@
 ### Installation
 **PentestGPT** current supports backend of **ChatGPT** and **OpenAI API**. You may use either of them. We're working on supports to custom local LLM models.
 You're recommended to use the OpenAI API for stability and performance (details in item 3). 
+Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
 1. Install the latest version with `pip3 install git+https://github.com/GreyDGL/PentestGPT`
 2. If you decide to use **ChatGPT** as the backend
    - Obtain the cookie to access the ChatGPT session 
