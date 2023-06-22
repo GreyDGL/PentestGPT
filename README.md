@@ -103,6 +103,8 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
    2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-4 --useAPI>
    ## Test connection for OpenAI api (GPT-3.5)
    3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-3.5-turbo --useAPI>
+   ## Test connection for OpenAI api (GPT-3.5 16k tokens)
+   3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-3.5-turbo-16k --useAPI>
    ```
 5. The ChatGPT cookie solution can be very unstable. We're constantly working on a better solution. If you have any idea or encounter any issues, please feel free to contact us.
 
