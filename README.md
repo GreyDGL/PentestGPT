@@ -118,6 +118,8 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
       - `pentestgpt --reasoning_model=gpt-4`
       - `pentestgpt --reasoning_model=gpt-4 --useAPI`
       - `pentestgpt --reasoning_model=gpt-3.5-turbo --useAPI`
+      - `pentestgpt --reasoning_model=gpt-3.5-turbo-16k --useAPI`
+
 2. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
 3. In general, PentestGPT intakes commands similar to chatGPT. There are several basic commands.
    1. The commands are: 
