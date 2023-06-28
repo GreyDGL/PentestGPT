@@ -68,6 +68,7 @@
   - **A**: AutoGPT is not designed for pentest. It may perform malicious operations. Due to this consideration, we design PentestGPT in an interactive mode. Of course, our end goal is an automated pentest solution.
 
     
+
 <!-- GETTING STARTED -->
 ## Getting Started
 - **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. 
@@ -119,7 +120,10 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
       - `pentestgpt --reasoning_model=gpt-4 --useAPI`
       - `pentestgpt --reasoning_model=gpt-3.5-turbo --useAPI`
       - `pentestgpt --reasoning_model=gpt-3.5-turbo-16k --useAPI`
-
+    - `--baseUrl`  is the url where you want to use another GPT4, which are:
+      - `pentestgpt --useAPI --baseUrl https://{your own endpoint}.openai.azure.com`
+      - `pentestgpt --useAPI --baseUrl https://openai.api2d.net/v1`
+    - `--logDir` is the the customized log output directory. The location is a relative directory
 2. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
 3. In general, PentestGPT intakes commands similar to chatGPT. There are several basic commands.
    1. The commands are: 
@@ -204,4 +208,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[JQuery-url]: https://jquery.com
