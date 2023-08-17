@@ -7,7 +7,7 @@ with open(os.path.join(os.path.dirname(__file__), "requirements.txt")) as f:
 
 setup(
     name="pentestgpt",
-    version="0.9.1",
+    version="0.10.0",
     description="PentestGPT, a GPT-empowered penetration testing tool",
     long_description="""
     PentestGPT is a penetration testing tool empowered by ChatGPT.
