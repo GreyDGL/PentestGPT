@@ -144,7 +144,7 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
 
 ## Custom Models and Local LLMs
 PentestGPT now support any LLMs, but the prompts are only optimized for GPT-4.
-- To use local GPT4ALL model, you may run `pentestgpt --reasoning_model=gpt4all --parse_model=gpt4all`
+- To use local GPT4ALL model, you may run `pentestgpt --reasoning_model=gpt4all --parsing_model=gpt4all`
 - The model configs are available `pentestgpt/utils/APIs`. Please follow the example of `module_import.py`, `gpt4all.py` and `chatgpt_api.py` to create API support for your own model.
 
 
