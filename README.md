@@ -147,6 +147,18 @@ PentestGPT now support any LLMs, but the prompts are only optimized for GPT-4.
 - To use local GPT4ALL model, you may run `pentestgpt --reasoning_model=gpt4all --parsing_model=gpt4all`
 - The model configs are available `pentestgpt/utils/APIs`. Please follow the example of `module_import.py`, `gpt4all.py` and `chatgpt_api.py` to create API support for your own model.
 
+## Citation
+Please cite our paper at:
+```
+@misc{deng2023pentestgpt,
+      title={PentestGPT: An LLM-empowered Automatic Penetration Testing Tool}, 
+      author={Gelei Deng and Yi Liu and Víctor Mayoral-Vilches and Peng Liu and Yuekang Li and Yuan Xu and Tianwei Zhang and Yang Liu and Martin Pinzger and Stefan Rass},
+      year={2023},
+      eprint={2308.06782},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE}
+}
+```
 
 <!-- LICENSE -->
 ## License
