@@ -10,7 +10,7 @@ rich
 prompt-toolkit
 google
 pytest
-openai
+openai~=0.27.8
 langchain
 tiktoken
 pycookiecheat
