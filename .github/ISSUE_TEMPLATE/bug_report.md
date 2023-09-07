@@ -8,7 +8,8 @@ assignees: ''
 ---
 
 **Describe the bug**
-A clear and concise description of what the bug is.
+**Please attach screenshot for output of `pentestgpt-connection`**. This is essential as I cannot help to debug otherwise.
+A clear and concise description of what the bug is. 
 
 **To Reproduce**
 Steps to reproduce the behavior:
