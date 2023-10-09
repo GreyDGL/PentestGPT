@@ -111,14 +111,15 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
 ## Usage
 1. **You are recommended to run**:
    - `pentestgpt --reasoning_model=gpt-4` if you have access to GPT-4 API.
-   - `pentestgpt --reasoning_model=gpt-3.5-turbo` if you only have access to GPT-3.5 API.
+   - `pentestgpt --reasoning_model=gpt-3.5-turbo-16k` if you only have access to GPT-3.5 API.
 2. To start, run `pentestgpt --args`.
+    - `--help` show the help message
     - `--reasoning_model` is the reasoning model you want to use. 
     - `--parsing_model` is the parsing model you want to use. 
     - `--useAPI` is whether you want to use OpenAI API. By default it is set to True
     - `--log_dir` is the customized log output directory. The location is a relative directory
-3. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
-4. In general, PentestGPT intakes commands similar to chatGPT. There are several basic commands.
+4. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
+5. In general, PentestGPT intakes commands similar to chatGPT. There are several basic commands.
    1. The commands are: 
       - `help`: show the help message.
       - `next`: key in the test execution result and get the next step.
@@ -130,7 +131,7 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
    2. You can use <SHIFT + right arrow> to end your input (and <ENTER> is for next line).
    3. You may always use `TAB` to autocomplete the commands.
    4. When you're given a drop-down selection list, you can use cursor or arrow key to navigate the list. Press `ENTER` to select the item. Similarly, use <SHIFT + right arrow> to confirm selection.
-5. In the sub-task handler initiated by `more`, users can execute more commands to investigate into a specific problem:
+6. In the sub-task handler initiated by `more`, users can execute more commands to investigate into a specific problem:
    1. The commands are:
         - `help`: show the help message.
         - `brainstorm`: let PentestGPT brainstorm on the local task for all the possible solutions.
