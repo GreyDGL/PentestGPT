@@ -57,17 +57,15 @@
 <!-- Common Questions -->
 ## Common Questions
 - **Q**: What is PentestGPT?
-  - **A**: PentestGPT is a penetration testing tool empowered by Large Language Models (LLMs). It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
-- **Q**: Do I need to to pay to use PentestGPT?
-  - **A**: No. In general, you can use any LLMs you want, but you're recommended to use GPT-4 API. 
+  - **A**: PentestGPT is a penetration testing tool empowered by Large Language Models (LLMs). It is designed to automate the penetration testing process. It is built on top of ChatGPT API and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
+- **Q**: Do I need to pay to use PentestGPT?
+  - **A**: Yes in order to achieve the best performance. In general, you can use any LLMs you want, but you're recommended to use GPT-4 API, for which you have to [link a payment method to OpenAI](https://help.openai.com/en/collections/3943089-billing?q=API). 
 - **Q**: Why GPT-4?
-  - **A**: After empirical evaluation, we found that GPT-4 performs better than GPT-3.5 and other LLMs in terms of penetration testing reasoning. In fact, GPT-3.5 leads to failed test in simple tasks.
+  - **A**: After empirical evaluation, we find that GPT-4 performs better than GPT-3.5 and other LLMs in terms of penetration testing reasoning. In fact, GPT-3.5 leads to failed test in simple tasks.
 - **Q**: Why not just use GPT-4 directly?
-  - **A**: We found that GPT-4 suffers from losses of context as test goes deeper. It is essential to maintain a "test status awareness" in this process. You may check the PentestGPT design [here](./PentestGPT_design.md) for more details.
+  - **A**: We found that GPT-4 suffers from losses of context as test goes deeper. It is essential to maintain a "test status awareness" in this process. You may check the [PentestGPT Arxiv Paper](https://arxiv.org/abs/2308.06782) for details.
 - **Q**: Can I use local GPT models?
   - **A**: Yes. We support local LLMs through GPT4ALL (but the performance is not comparable to GPT-4).
-- **Q**: What about AutoGPT?
-  - **A**: AutoGPT is not designed for pentest. It may perform malicious operations. Due to this consideration, we design PentestGPT in an interactive mode. Of course, our end goal is an automated pentest solution.
 
     
 
@@ -89,7 +87,8 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
      - `git clone https://github.com/GreyDGL/PentestGPT`
      - `cd PentestGPT`
      - `pip3 install -e .`
-2. To use OpenAI API 
+2. To use OpenAI API
+   - **Ensure that you have link a payment method to your OpenAI account.**
    - export your API key with `export OPENAI_KEY='<your key here>'`
    - Test the connection with `pentestgpt-connection`
 3. To verify that the connection is configured properly, you may run `pentestgpt-connection`. After a while, you should see some sample conversation with ChatGPT.
@@ -104,7 +103,8 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
    ## Test connection for OpenAI api (GPT-3.5 16k tokens)
    3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-3.5-turbo-16k --useAPI>
    ```
-4. The ChatGPT cookie solution is deprecated and not recommended. You may still use it by running `pentestgpt --reasoning_model=gpt-4 --useAPI=False`
+   - notice: if you have not linked a payment method to your OpenAI account, you will see error messages.
+4. The ChatGPT cookie solution is deprecated and not recommended. You may still use it by running `pentestgpt --reasoning_model=gpt-4 --useAPI=False`. 
 
 <!-- USAGE EXAMPLES -->
 
@@ -118,8 +118,8 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
     - `--parsing_model` is the parsing model you want to use. 
     - `--useAPI` is whether you want to use OpenAI API. By default it is set to True
     - `--log_dir` is the customized log output directory. The location is a relative directory
-4. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
-5. In general, PentestGPT intakes commands similar to chatGPT. There are several basic commands.
+3. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
+4. In general, PentestGPT intakes commands similar to chatGPT. There are several basic commands.
    1. The commands are: 
       - `help`: show the help message.
       - `next`: key in the test execution result and get the next step.
@@ -136,17 +136,17 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
         * **web**: relevant content of a web page
         * **deafult**: whatever you want, the tool will handle it
         * **user-comments**: user comments about PentestGPT operations
-6. In the sub-task handler initiated by `more`, users can execute more commands to investigate into a specific problem:
+5. In the sub-task handler initiated by `more`, users can execute more commands to investigate into a specific problem:
    1. The commands are:
         - `help`: show the help message.
         - `brainstorm`: let PentestGPT brainstorm on the local task for all the possible solutions.
         - `discuss`: discuss with PentestGPT about this local task.
         - `google`: search on Google. This function is still under development.
         - `continue`: exit the subtask and continue the main testing session.
+
 ### Report and Logging
 1. After finishing the penetration testing, a report will be automatically generated in `logs` folder (if you quit with `quit` command).
 2. The report can be printed in a human-readable format by running `python3 utils/report_generator.py <log file>`. A sample report `sample_pentestGPT_log.txt` is also uploaded.
-
 
 ## Custom Models and Local LLMs
 PentestGPT now support any LLMs, but the prompts are only optimized for GPT-4.
