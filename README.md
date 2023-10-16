@@ -130,7 +130,12 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
       - `quit`: exit the tool and save the output as log file (see the **reporting** section below).
    2. You can use <SHIFT + right arrow> to end your input (and <ENTER> is for next line).
    3. You may always use `TAB` to autocomplete the commands.
-   4. When you're given a drop-down selection list, you can use cursor or arrow key to navigate the list. Press `ENTER` to select the item. Similarly, use <SHIFT + right arrow> to confirm selection.
+   4. When you're given a drop-down selection list, you can use cursor or arrow key to navigate the list. Press `ENTER` to select the item. Similarly, use <SHIFT + right arrow> to confirm selection.\
+      The user can submit info about:
+        * **tool**: output of the security test tool used
+        * **web**: relevant content of a web page
+        * **deafult**: whatever you want, the tool will handle it
+        * **user-comments**: user comments about PentestGPT operations
 6. In the sub-task handler initiated by `more`, users can execute more commands to investigate into a specific problem:
    1. The commands are:
         - `help`: show the help message.
