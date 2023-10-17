@@ -134,7 +134,7 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
       The user can submit info about:
         * **tool**: output of the security test tool used
         * **web**: relevant content of a web page
-        * **deafult**: whatever you want, the tool will handle it
+        * **default**: whatever you want, the tool will handle it
         * **user-comments**: user comments about PentestGPT operations
 5. In the sub-task handler initiated by `more`, users can execute more commands to investigate into a specific problem:
    1. The commands are:
