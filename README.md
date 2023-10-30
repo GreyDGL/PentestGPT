@@ -46,6 +46,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## General Updates
+- [Update on 30/10/2023] Trying to update the project with vectorDB.
 - [Update on 20/07/2023] A major update (v0.9) add supports for local LLMs.
 - Available videos:
   - The latest installation video is [here](https://youtu.be/tGC5z14dE24).
@@ -181,6 +182,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 - Víctor Mayoral Vilches - [![LinkedIn][linkedin-shield]][linkedin-url2] - v.mayoralv@gmail.com
 - Yi Liu - yi009@e.ntu.edu.sg
 - Peng Liu - liu_peng@i2r.a-star.edu.sg
+- Zhang Jian - jian_zhang@ntu.edu.sg
 
 
 
