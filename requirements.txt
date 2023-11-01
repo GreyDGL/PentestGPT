@@ -17,3 +17,4 @@ pycookiecheat
 tenacity
 gpt4all
 pinecone-client
+langfuse
