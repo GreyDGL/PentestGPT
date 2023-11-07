@@ -56,6 +56,23 @@
 - Feel free to join the [Discord Channel](https://discord.gg/eC34CEfEkK) for more updates and share your ideas!
 
 
+<!-- Quick Start -->
+## Quick Start
+1. Create a virtual environment if necessary. (`virtualenv -p python3 venv`, `source venv/bin/activate`)
+2. Install the project with `pip3 install git+https://github.com/GreyDGL/PentestGPT`
+3. **Ensure that you have link a payment method to your OpenAI account.** Export your API key with `export OPENAI_KEY='<your key here>'`
+4. Test the connection with `pentestgpt-connection`
+5. To start: `pentestgpt --logging`
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+- **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. 
+- It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
+- **PentestGPT** is able to solve easy to medium HackTheBox machines, and other CTF challenges. You can check [this](./resources/README.md) example in `resources` where we use it to solve HackTheBox challenge **TEMPLATED** (web challenge). 
+- A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable II) is available at [here](./resources/PentestGPT_Hackable2.pdf).
+- A sample usage video is below: (or available here: [Demo](https://youtu.be/h0k6kWWaCEU))
+
 <!-- Common Questions -->
 ## Common Questions
 - **Q**: What is PentestGPT?
@@ -68,23 +85,6 @@
   - **A**: We found that GPT-4 suffers from losses of context as test goes deeper. It is essential to maintain a "test status awareness" in this process. You may check the [PentestGPT Arxiv Paper](https://arxiv.org/abs/2308.06782) for details.
 - **Q**: Can I use local GPT models?
   - **A**: Yes. We support local LLMs through GPT4ALL (but the performance is not comparable to GPT-4).
-
-<!-- Quick Start -->
-## Quick Start
-1. Create a virtual environment if necessary. (`virtualenv -p python3 venv`, `source venv/bin/activate`)
-2. Install the project with `pip3 install git+https://github.com/GreyDGL/PentestGPT`
-3. **Ensure that you have link a payment method to your OpenAI account.** Export your API key with `export OPENAI_KEY='<your key here>'`
-4. Test the connection with `pentestgpt-connection`
-5. To start: `pentestgpt --logging`
-    
-
-<!-- GETTING STARTED -->
-## Getting Started
-- **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. 
-- It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
-- **PentestGPT** is able to solve easy to medium HackTheBox machines, and other CTF challenges. You can check [this](./resources/README.md) example in `resources` where we use it to solve HackTheBox challenge **TEMPLATED** (web challenge). 
-- A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable II) is available at [here](./resources/PentestGPT_Hackable2.pdf).
-- A sample usage video is below: (or available here: [Demo](https://youtu.be/h0k6kWWaCEU))
 
 
 ### Installation
