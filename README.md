@@ -46,8 +46,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## General Updates
+- [Update on 07/11/2023] GPT-4-turbo is out! Update the default API usage to GPT-4-turbo. 
 - [Update on 30/10/2023] Trying to update the project with vectorDB.
-- [Update on 20/07/2023] A major update (v0.9) add supports for local LLMs.
 - Available videos:
   - The latest installation video is [here](https://youtu.be/tGC5z14dE24).
   - **PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
@@ -111,8 +111,10 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
 
 ## Usage
 1. **You are recommended to run**:
+   - (recommended) - `pentestgpt --reasoning_model=gpt-4-turbo` to use the latest GPT-4-turbo API.
    - `pentestgpt --reasoning_model=gpt-4` if you have access to GPT-4 API.
    - `pentestgpt --reasoning_model=gpt-3.5-turbo-16k` if you only have access to GPT-3.5 API.
+   
 2. To start, run `pentestgpt --args`.
     - `--help` show the help message
     - `--reasoning_model` is the reasoning model you want to use. 
