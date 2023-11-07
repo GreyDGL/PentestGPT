@@ -105,11 +105,9 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
    ```
    You're testing the connection for PentestGPT v 0.11.0
    #### Test connection for OpenAI api (GPT-4)
-
    1. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-4>
+   
    #### Test connection for OpenAI api (GPT-3.5)
-   New conversation.a00eabd2-7d56-11ee-9e8a-865efc858dbf is created.
-
    2. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-3.5-turbo-16k>
    ```
    - notice: if you have not linked a payment method to your OpenAI account, you will see error messages.
