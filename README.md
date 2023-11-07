@@ -46,14 +46,32 @@
 
 <!-- ABOUT THE PROJECT -->
 ## General Updates
+- [Update on 07/11/2023] GPT-4-turbo is out! Update the default API usage to GPT-4-turbo. 
 - [Update on 30/10/2023] Trying to update the project with vectorDB.
-- [Update on 20/07/2023] A major update (v0.9) add supports for local LLMs.
 - Available videos:
   - The latest installation video is [here](https://youtu.be/tGC5z14dE24).
   - **PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
   - **PentestGPT on [HTB-Lame](https://youtu.be/Vs9DFtAkODM)**. This is an easy machine, but it shows you how PentestGPT skipped the rabbit hole and worked on other potential vulnerabilities.
 - **We're testing PentestGPT on HackTheBox**. You may follow [this link](https://www.hackthebox.com/home/users/profile/1489431). More details will be released soon.
 - Feel free to join the [Discord Channel](https://discord.gg/eC34CEfEkK) for more updates and share your ideas!
+
+
+<!-- Quick Start -->
+## Quick Start
+1. Create a virtual environment if necessary. (`virtualenv -p python3 venv`, `source venv/bin/activate`)
+2. Install the project with `pip3 install git+https://github.com/GreyDGL/PentestGPT`
+3. **Ensure that you have link a payment method to your OpenAI account.** Export your API key with `export OPENAI_KEY='<your key here>'`
+4. Test the connection with `pentestgpt-connection`
+5. To start: `pentestgpt --logging`
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+- **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. 
+- It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
+- **PentestGPT** is able to solve easy to medium HackTheBox machines, and other CTF challenges. You can check [this](./resources/README.md) example in `resources` where we use it to solve HackTheBox challenge **TEMPLATED** (web challenge). 
+- A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable II) is available at [here](./resources/PentestGPT_Hackable2.pdf).
+- A sample usage video is below: (or available here: [Demo](https://youtu.be/h0k6kWWaCEU))
 
 <!-- Common Questions -->
 ## Common Questions
@@ -67,16 +85,6 @@
   - **A**: We found that GPT-4 suffers from losses of context as test goes deeper. It is essential to maintain a "test status awareness" in this process. You may check the [PentestGPT Arxiv Paper](https://arxiv.org/abs/2308.06782) for details.
 - **Q**: Can I use local GPT models?
   - **A**: Yes. We support local LLMs through GPT4ALL (but the performance is not comparable to GPT-4).
-
-    
-
-<!-- GETTING STARTED -->
-## Getting Started
-- **PentestGPT** is a penetration testing tool empowered by **ChatGPT**. 
-- It is designed to automate the penetration testing process. It is built on top of ChatGPT and operate in an interactive mode to guide penetration testers in both overall progress and specific operations.
-- **PentestGPT** is able to solve easy to medium HackTheBox machines, and other CTF challenges. You can check [this](./resources/README.md) example in `resources` where we use it to solve HackTheBox challenge **TEMPLATED** (web challenge). 
-- A sample testing process of **PentestGPT** on a target VulnHub machine (Hackable II) is available at [here](./resources/PentestGPT_Hackable2.pdf).
-- A sample usage video is below: (or available here: [Demo](https://youtu.be/h0k6kWWaCEU))
 
 
 ### Installation
@@ -95,14 +103,12 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
 3. To verify that the connection is configured properly, you may run `pentestgpt-connection`. After a while, you should see some sample conversation with ChatGPT.
    - A sample output is below
    ```
-   1. You're connected with ChatGPT Plus cookie. 
-   To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-4>
-   ## Test connection for OpenAI api (GPT-4)
-   2. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-4 --useAPI>
-   ## Test connection for OpenAI api (GPT-3.5)
-   3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-3.5-turbo --useAPI>
-   ## Test connection for OpenAI api (GPT-3.5 16k tokens)
-   3. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-3.5-turbo-16k --useAPI>
+   You're testing the connection for PentestGPT v 0.11.0
+   #### Test connection for OpenAI api (GPT-4)
+   1. You're connected with OpenAI API. You have GPT-4 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-4>
+   
+   #### Test connection for OpenAI api (GPT-3.5)
+   2. You're connected with OpenAI API. You have GPT-3.5 access. To start PentestGPT, please use <pentestgpt --reasoning_model=gpt-3.5-turbo-16k>
    ```
    - notice: if you have not linked a payment method to your OpenAI account, you will see error messages.
 4. The ChatGPT cookie solution is deprecated and not recommended. You may still use it by running `pentestgpt --reasoning_model=gpt-4 --useAPI=False`. 
@@ -111,14 +117,17 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
 
 ## Usage
 1. **You are recommended to run**:
+   - (recommended) - `pentestgpt --reasoning_model=gpt-4-turbo` to use the latest GPT-4-turbo API.
    - `pentestgpt --reasoning_model=gpt-4` if you have access to GPT-4 API.
    - `pentestgpt --reasoning_model=gpt-3.5-turbo-16k` if you only have access to GPT-3.5 API.
+   
 2. To start, run `pentestgpt --args`.
     - `--help` show the help message
     - `--reasoning_model` is the reasoning model you want to use. 
     - `--parsing_model` is the parsing model you want to use. 
-    - `--useAPI` is whether you want to use OpenAI API. By default it is set to True
-    - `--log_dir` is the customized log output directory. The location is a relative directory
+    - `--useAPI` is whether you want to use OpenAI API. By default it is set to `True`.
+    - `--log_dir` is the customized log output directory. The location is a relative directory.
+    - `--logging` defines if you would like to share the logs with us. By default it is set to `False`.
 3. The tool works similar to *msfconsole*. Follow the guidance to perform penetration testing. 
 4. In general, PentestGPT intakes commands similar to chatGPT. There are several basic commands.
    1. The commands are: 
@@ -146,8 +155,9 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
         - `continue`: exit the subtask and continue the main testing session.
 
 ### Report and Logging
-1. After finishing the penetration testing, a report will be automatically generated in `logs` folder (if you quit with `quit` command).
-2. The report can be printed in a human-readable format by running `python3 utils/report_generator.py <log file>`. A sample report `sample_pentestGPT_log.txt` is also uploaded.
+1. [Update] If you would like us to collect the logs to improve the tool, please run `pentestgpt --logging`. We will only collect the LLM usage, without any information related to your OpenAI key.
+2. After finishing the penetration testing, a report will be automatically generated in `logs` folder (if you quit with `quit` command).
+3. The report can be printed in a human-readable format by running `python3 utils/report_generator.py <log file>`. A sample report `sample_pentestGPT_log.txt` is also uploaded.
 
 ## Custom Models and Local LLMs
 PentestGPT now support any LLMs, but the prompts are only optimized for GPT-4.
