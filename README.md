@@ -46,8 +46,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## General Updates
+- [Update on 17/11/2023] GPTs for PentestGPT is out! Check this: https://chat.openai.com/g/g-4MHbTepWO-pentestgpt
 - [Update on 07/11/2023] GPT-4-turbo is out! Update the default API usage to GPT-4-turbo. 
-- [Update on 30/10/2023] Trying to update the project with vectorDB.
 - Available videos:
   - The latest installation video is [here](https://youtu.be/tGC5z14dE24).
   - **PentestGPT for OSCP-like machine: [HTB-Jarvis](https://youtu.be/lAjLIj1JT3c)**. This is the first part only, and I'll complete the rest when I have time.
