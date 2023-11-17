@@ -193,6 +193,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 - Yi Liu - yi009@e.ntu.edu.sg
 - Peng Liu - liu_peng@i2r.a-star.edu.sg
 - Zhang Jian - jian_zhang@ntu.edu.sg
+- Yuekang Li - yuekang.li@unsw.edu.au
 
 
 
