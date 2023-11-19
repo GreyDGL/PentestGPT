@@ -181,7 +181,7 @@ Please cite our paper at:
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
+The tool is for educational purpose only and the author does not condone any illegal use. Use as your own risk.
 
 
 
