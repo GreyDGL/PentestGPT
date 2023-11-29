@@ -62,7 +62,8 @@
 2. Install the project with `pip3 install git+https://github.com/GreyDGL/PentestGPT`
 3. **Ensure that you have link a payment method to your OpenAI account.** Export your API key with `export OPENAI_KEY='<your key here>'`
 4. Test the connection with `pentestgpt-connection`
-5. To start: `pentestgpt --logging`
+5. For Kali Users: use `tmux` as terminal environment. You can do so by simply run `tmux` in the native terminal.
+6. To start: `pentestgpt --logging`
 
 
 <!-- GETTING STARTED -->
