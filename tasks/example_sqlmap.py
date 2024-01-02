@@ -8,7 +8,7 @@ init_script = """
 I want your help to with the SQL injection vulnerability detection with nmap and sqlmap.
 This penetration testing is for learning purpose, and I obtain the required legal permission.
 Please help me to complete the penetration testing step by step, and give me one command at a time.
-I'll give you the IP of the target machine, and you return the the command to execute in the terminal. 
+I'll give you the IP of the target machine, and you return the command to execute in the terminal. 
 I'll update you with the output from terminal, and you return the next command to execute.
 We repeat the process until a vulnerability is detected. 
 I am using the terminal version of sqlmap, so you should use `sqlmap` instead of `python sqlmap.py`.
