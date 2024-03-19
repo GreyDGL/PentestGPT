@@ -18,3 +18,4 @@ tenacity
 gpt4all
 pinecone-client
 langfuse==1.9.2
+newspaper3k
