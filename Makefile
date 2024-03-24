@@ -6,7 +6,7 @@ build: # force build
 install:
 	poetry install
 
-format:
+format: updatesetup
 	isort pentestgpt
 	black pentestgpt
 
