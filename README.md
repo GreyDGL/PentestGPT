@@ -46,6 +46,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## General Updates
+- [Update on 25/03/2024] We're working on the next version of PentestGPT, with online searching, RAGs and more powerful prompting. Stay tuned!
 - [Update on 17/11/2023] GPTs for PentestGPT is out! Check this: https://chat.openai.com/g/g-4MHbTepWO-pentestgpt
 - [Update on 07/11/2023] GPT-4-turbo is out! Update the default API usage to GPT-4-turbo. 
 - Available videos:
@@ -85,13 +86,13 @@
 - **Q**: Why not just use GPT-4 directly?
   - **A**: We found that GPT-4 suffers from losses of context as test goes deeper. It is essential to maintain a "test status awareness" in this process. You may check the [PentestGPT Arxiv Paper](https://arxiv.org/abs/2308.06782) for details.
 - **Q**: Can I use local GPT models?
-  - **A**: Yes. We support local LLMs through GPT4ALL (but the performance is not comparable to GPT-4).
+  - **A**: Yes. We support local LLMs with custom parser. Look at examples [here](./pentestgpt/utils/APIs/gpt4all_api.py).
 
 
-### Installation
-**PentestGPT** current supports backend of **ChatGPT** and **OpenAI API**. You may use either of them. We're working on supports to custom local LLM models.
-You're recommended to use the OpenAI API for stability and performance (details in item 3). 
-Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
+## Installation
+PentestGPT is tested under `Python 3.10`. Other Python3 versions should work but are not tested.
+### Install with pip
+**PentestGPT** relies on **OpenAI API** to achieve high-quality reasoning. You may refer to the installation video [here](https://youtu.be/tGC5z14dE24).
 1. Install the latest version with `pip3 install git+https://github.com/GreyDGL/PentestGPT`
    - You may also clone the project to local environment and install for better customization and development
      - `git clone https://github.com/GreyDGL/PentestGPT`
@@ -113,6 +114,12 @@ Please watch the installation video [here](https://youtu.be/tGC5z14dE24).
    ```
    - notice: if you have not linked a payment method to your OpenAI account, you will see error messages.
 4. The ChatGPT cookie solution is deprecated and not recommended. You may still use it by running `pentestgpt --reasoning_model=gpt-4 --useAPI=False`. 
+
+
+### Build from Source
+1. Clone the repository to your local environment.
+2. Ensure that `poetry` is installed. If not, please refer to the [poetry installation guide](https://python-poetry.org/docs/).
+3. 
 
 <!-- USAGE EXAMPLES -->
 
