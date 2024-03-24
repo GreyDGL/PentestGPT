@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "pentestgpt"
+version = "0.12.0"
+description = "PentestGPT is an LLM-powered penetration testing tool."
+authors = ["Gelei Deng <GELEI.DENG@ntu.edu.sg>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+pyyaml = "^6.0.1"
+playwright = "1.28.0"
+sqlmap = "^1.8.3"
+black = "^24.3.0"
+loguru = "^0.7.2"
+beautifulsoup4 = ">=4.11.2,<4.12.0"
+colorama = "^0.4.6"
+rich = "^13.7.1"
+prompt-toolkit = "^3.0.43"
+google = "^3.0.0"
+pytest = "^8.1.1"
+openai = ">=0.27.8,<0.28.0"
+langchain = "^0.1.13"
+tiktoken = "^0.6.0"
+pycookiecheat = "^0.6.0"
+tenacity = "^8.2.3"
+gpt4all = "^2.3.0"
+pinecone-client = "^3.2.0"
+langfuse = "1.9.2"
+newspaper3k = "^0.2.8"
+toml = "^0.10.2"
+
+[tool.poetry.scripts]
+pentestgpt="pentestgpt.main:main"
+pentestgpt-connection="pentestgpt.test_connection:main"
+pentestgpt-cookie="pentestgpt.extract_cookie:main"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
