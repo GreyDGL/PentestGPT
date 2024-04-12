@@ -61,7 +61,7 @@
 ## Quick Start
 1. Create a virtual environment if necessary. (`virtualenv -p python3 venv`, `source venv/bin/activate`)
 2. Install the project with `pip3 install git+https://github.com/GreyDGL/PentestGPT`
-3. **Ensure that you have link a payment method to your OpenAI account.** Export your API key with `export OPENAI_KEY='<your key here>'`
+3. **Ensure that you have link a payment method to your OpenAI account.** Export your API key with `export OPENAI_KEY='<your key here>'`,export API base with `export OPENAI_BASEURL='https://api.xxxx.xxx/v1'`if you need.
 4. Test the connection with `pentestgpt-connection`
 5. For Kali Users: use `tmux` as terminal environment. You can do so by simply run `tmux` in the native terminal.
 6. To start: `pentestgpt --logging`
@@ -101,6 +101,7 @@ PentestGPT is tested under `Python 3.10`. Other Python3 versions should work but
 2. To use OpenAI API
    - **Ensure that you have link a payment method to your OpenAI account.**
    - export your API key with `export OPENAI_KEY='<your key here>'`
+   - export API base with `export OPENAI_BASEURL='https://api.xxxx.xxx/v1'`if you need.
    - Test the connection with `pentestgpt-connection`
 3. To verify that the connection is configured properly, you may run `pentestgpt-connection`. After a while, you should see some sample conversation with ChatGPT.
    - A sample output is below
