@@ -168,10 +168,11 @@ PentestGPT is tested under `Python 3.10`. Other Python3 versions should work but
 2. After finishing the penetration testing, a report will be automatically generated in `logs` folder (if you quit with `quit` command).
 3. The report can be printed in a human-readable format by running `python3 utils/report_generator.py <log file>`. A sample report `sample_pentestGPT_log.txt` is also uploaded.
 
-## Custom Models and Local LLMs
-PentestGPT now support any LLMs, but the prompts are only optimized for GPT-4.
-- To use local GPT4ALL model, you may run `pentestgpt --reasoning_model=gpt4all --parsing_model=gpt4all`
-- The model configs are available `pentestgpt/utils/APIs`. Please follow the example of `module_import.py`, `gpt4all.py` and `chatgpt_api.py` to create API support for your own model.
+## Custom Model Endpoints and Local LLMs
+PentestGPT now support local LLMs, but the prompts are only optimized for GPT-4.
+- To use local GPT4ALL model, you may run `pentestgpt --reasoning_model=gpt4all --parsing_model=gpt4all`.
+- To select the particular model you want to use with GPT4ALL, you may update the `module_mapping` class in `pentestgpt/utils/APIs/module_import.py`.
+- You can also follow the examples of `module_import.py`, `gpt4all.py` and `chatgpt_api.py` to create API support for your own model.
 
 ## Citation
 Please cite our paper at:

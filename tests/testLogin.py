@@ -1,6 +1,6 @@
 import unittest
 from http.cookies import SimpleCookie
-from pentestgpt.config.chatgpt_config import ChatGPTConfig
+from pentestgpt.config.chat_config import ChatGPTConfig
 from pentestgpt.utils.chatgpt import ChatGPT
 
 
