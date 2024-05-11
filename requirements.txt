@@ -99,3 +99,4 @@ win32-setctime==1.1.0 ; python_version >= "3.10" and python_version < "4.0" and 
 wrapt==1.14.0 ; python_version >= "3.10" and python_version < "4.0"
 yarl==1.9.4 ; python_version >= "3.10" and python_version < "4.0"
 zipp==3.18.1 ; python_version >= "3.10" and python_version < "4.0"
+google-generativeai==0.5.2 ; python_version >= "3.10" and python_version < "4.0"
