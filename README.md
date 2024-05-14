@@ -100,7 +100,7 @@ PentestGPT is tested under `Python 3.10`. Other Python3 versions should work but
      - `pip3 install -e .`
 2. To use OpenAI API
    - **Ensure that you have link a payment method to your OpenAI account.**
-   - export your API key with `export OPENAI_KEY='<your key here>'`
+   - export your API key with `export OPENAI_API_KEY='<your key here>'`
    - export API base with `export OPENAI_BASEURL='https://api.xxxx.xxx/v1'`if you need.
    - Test the connection with `pentestgpt-connection`
 3. To verify that the connection is configured properly, you may run `pentestgpt-connection`. After a while, you should see some sample conversation with ChatGPT.
