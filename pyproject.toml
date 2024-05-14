@@ -1,16 +1,15 @@
 [tool.poetry]
 name = "pentestgpt"
-version = "0.13.0"
+version = "0.13.1"
 description = "PentestGPT is an LLM-powered penetration testing tool."
 authors = ["Gelei Deng <GELEI.DENG@ntu.edu.sg>"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<4.0"
 requests = "^2.31.0"
 pyyaml = "^6.0.1"
-playwright = "1.28.0"
 sqlmap = "^1.8.3"
 black = "^24.3.0"
 loguru = "^0.7.2"
