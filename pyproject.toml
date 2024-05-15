@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pentestgpt"
-version = "0.13.1"
+version = "0.13.3"
 description = "PentestGPT is an LLM-powered penetration testing tool."
 authors = ["Gelei Deng <GELEI.DENG@ntu.edu.sg>"]
 license = "MIT"
@@ -19,7 +19,7 @@ rich = "^13.7.1"
 prompt-toolkit = "^3.0.43"
 google = "^3.0.0"
 pytest = "^8.1.1"
-openai = ">=0.27.8,<0.28.0"
+openai = "^1.29.0"
 langchain = "^0.1.13"
 tiktoken = "^0.6.0"
 pycookiecheat = "^0.6.0"
