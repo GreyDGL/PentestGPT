@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pentestgpt"
-version = "0.13.3"
+version = "0.14.0"
 description = "PentestGPT is an LLM-powered penetration testing tool."
 authors = ["Gelei Deng <GELEI.DENG@ntu.edu.sg>"]
 license = "MIT"
